@@ -7,7 +7,6 @@ body {
   overflow: hidden;
 }
 
-/* Center everything */
 .container {
   position: absolute;
   top: 50%;
@@ -15,12 +14,11 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
 /* Title styling */
 .title {
   font-size: 100px;
   letter-spacing: 8px;
-  text-shadow: 0 0 20px purple;
+  text-shadow: 0 0 20px rgb(22, 59, 182);
 }
 .title span {
   display: inline-block;
@@ -55,15 +53,15 @@ body {
   padding: 15px 40px;
   font-size: 18px;
   background: transparent;
-  border: 2px solid purple;
+  border: 2px solid rgb(22, 59, 182);
   color: white;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .enter-btn:hover {
-  background: purple;
-  box-shadow: 0 0 20px purple;
+  background: rgb(22, 59, 182);
+  box-shadow: 0 0 20px rgb(22, 59, 182);
 }
 
 /* Star background */
@@ -73,4 +71,81 @@ body {
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
   position: absolute;
   z-index: -1;
+}
+/* Start hidden */
+.subtitle,
+.enter-btn {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Subtitle animation */
+.subtitle {
+  animation: fadeUp 1s forwards;
+  animation-delay: 1s;
+}
+
+/* Button animation */
+.enter-btn {
+  animation: fadeUp 1s forwards;
+  animation-delay: 1.8s;
+}
+
+/* Shared animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating effect after animation */
+.title {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+/* Far stars (slow) */
+.stars {
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  animation: moveStars 120s linear infinite;
+  opacity: 0.4;
+}
+
+/* Near stars (faster) */
+.stars2 {
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.7;
+}
+
+/* Movement */
+@keyframes moveStars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-500px, -500px);
+  }
+}
+.enter-btn {
+  animation: fadeUp 1s forwards, pulse 2.5s infinite;
+  animation-delay: 1.8s, 3s;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #7fdfff; }
+  50% { box-shadow: 0 0 25px #7fdfff; }
+  100% { box-shadow: 0 0 5px #7fdfff; }
 }
