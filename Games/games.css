@@ -1,0 +1,110 @@
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 120px 40px;
+}
+
+.game-card {
+  background: rgba(5, 5, 16, 0.6);
+  border: 1px solid rgba(127, 223, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(127, 223, 255, 0.2);
+  border-color: #7fdfff;
+}
+.game-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 10, 0.85);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+  transition: opacity 0.3s;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-frame-container {
+  width: 90%;
+  height: 85%;
+  border-radius: 20px;
+  overflow: hidden;
+
+  border: 1px solid rgba(127, 223, 255, 0.3);
+  box-shadow: 0 0 40px rgba(127, 223, 255, 0.2);
+
+  position: relative;
+}
+
+.game-frame-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 2;
+
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #7fdfff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.game-overlay {
+  opacity: 0;
+}
+
+.game-overlay:not(.hidden) {
+  opacity: 1;
+}
+.game-frame-container {
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.echo-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  color: #376bae;
+  font-size: 22px;
+  text-align: center;
+  
+  opacity: 0;
+  pointer-events: none;
+  
+  text-shadow: 0 0 10px #4e6fad;
+  transition: opacity 0.5s ease;
+  z-index: 200;
+}

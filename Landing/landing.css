@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* Title styling */
+.title {
+  font-size: 100px;
+  letter-spacing: 8px;
+  text-shadow: 0 0 20px rgb(22, 59, 182);
+}
+.title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeSlide 0.6s forwards;
+}
+
+/* Stagger each letter */
+.title span:nth-child(1) { animation-delay: 0.1s; }
+.title span:nth-child(2) { animation-delay: 0.2s; }
+.title span:nth-child(3) { animation-delay: 0.3s; }
+.title span:nth-child(4) { animation-delay: 0.4s; }
+.title span:nth-child(5) { animation-delay: 0.5s; }
+.title span:nth-child(6) { animation-delay: 0.6s; }
+
+/* Animation */
+@keyframes fadeSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Subtitle */
+.subtitle {
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+/* Button */
+.enter-btn {
+  padding: 15px 40px;
+  font-size: 18px;
+  background: transparent;
+  border: 2px solid rgb(22, 59, 182);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enter-btn:hover {
+  background: rgb(22, 59, 182);
+  box-shadow: 0 0 20px rgb(22, 59, 182);
+}
+
+/* Star background */
+.stars {
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  z-index: -1;
+}
+/* Start hidden */
+.subtitle,
+.enter-btn {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Subtitle animation */
+.subtitle {
+  animation: fadeUp 1s forwards;
+  animation-delay: 1s;
+}
+
+/* Button animation */
+.enter-btn {
+  animation: fadeUp 1s forwards;
+  animation-delay: 1.8s;
+}
+
+/* Shared animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating effect after animation */
+.title {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+/* Far stars (slow) */
+.stars {
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  animation: moveStars 120s linear infinite;
+  opacity: 0.4;
+}
+
+/* Near stars (faster) */
+.stars2 {
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.7;
+}
+
+/* Movement */
+@keyframes moveStars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-500px, -500px);
+  }
+}
+.enter-btn {
+  animation: fadeUp 1s forwards, pulse 2.5s infinite;
+  animation-delay: 1.8s, 3s;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px #7fdfff; }
+  50% { box-shadow: 0 0 25px #7fdfff; }
+  100% { box-shadow: 0 0 5px #7fdfff; }
+}
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}

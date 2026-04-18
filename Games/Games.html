@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mythos - Games</title>
+  <link rel="stylesheet" href="games.css">
+  <link rel="stylesheet" href="../home.css">
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<nav class="nav">
+  <div class="logo">MYTHOS</div>
+  <div class="nav-links">
+    <a href="../home.html">Home</a>
+    <a href="#">Study</a>
+    <a href="#">Focus</a>
+  </div>
+</nav>
+
+<div class="games-container" id="gamesContainer"></div>
+
+<div id="gameOverlay" class="game-overlay hidden">
+  <div class="game-frame-container">
+    <button class="close-btn" onclick="closeGame()">✕</button>
+    <iframe id="gameFrame" src=""></iframe>
+  </div>
+</div>
+<div id="echoMessage" class="echo-message"></div>
+
+<script src="games.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mythos - Home</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+<nav class="nav">
+  <div class="logo">MYTHOS</div>
+
+  <div class="nav-links">
+    <a href="./Games/Games.html">Games</a>
+    <a href="#">Study</a>
+    <a href="#">Focus</a>
+  </div>
+</nav>
+
+  <div class="main">
+    <h1>Welcome to Mythos</h1>
+    <p id="randomText"></p>
+  </div>
+
+ <script>
+const normalPhrases = [
+  // Myth + Echo presence
+  "Hellooo! - Myth",
+  "Echo here.",
+  "Echo: still with you.",
+  "We’re both here now.",
+  "You showed up. That counts.",
+  "Welcome back.",
+  "You made it.",
+  
+  // Calm / grounding
+  "Breathe in. Breathe out.",
+  "Take your time.",
+  "Nothing is rushing you.",
+  "You can stay here a while.",
+  "It’s quiet here.",
+  "You’re safe here.",
+  
+  // Space / atmosphere
+  "The stars are waiting.",
+  "Drift a little longer.",
+  "Floating through something endless.",
+  "Somewhere, something exists.",
+  "You are very small. And that’s okay.",
+  "The universe isn’t in a hurry either.",
+  
+  // Thoughtful / existential-lite
+  "What will you explore today?",
+  "You chose to be here.",
+  "Or did you?",
+  "This moment won’t repeat.",
+  "You are thinking about thinking.",
+  "Is this where you meant to end up?",
+  "What were you doing before this?",
+  "You paused. Interesting.",
+  
+  // Slightly deeper
+  "If nothing matters, you get to choose what does.",
+  "You exist. That’s already rare.",
+  "Somewhere else, another version of this moment never happened.",
+  "You’re here now. That’s enough.",
+  "Awareness is a strange thing.",
+  
+  // Funny / chaotic
+  "You must be bored.",
+  "Totally normal website.",
+  "Nothing weird going on here.",
+  "Definitely not hiding anything.",
+  "Press things. Carefully.",
+  "This button does something. Probably.",
+  "Loading motivation...",
+  "Motivation failed to load.",
+  
+  // Subtle hints / secrets
+  "Not everything here is obvious.",
+  "Some things are just for you.",
+  "You know where to look.",
+  "Or you will.",
+  "There’s more beneath this.",
+   "Err̴or: S̶tate unsta̸ble.",
+  "Error: Rea̴li̶ty mismatch.",
+  "E̷r̵r̶o̴r̷: Outc̸ome shiftin̵g.",
+  "Error: Syst— ...resume.",
+  "Error: That wasn’t there before.",
+  "Err— wait.",
+  "Error: Something moved.",
+  "Error: That path changed.",
+  "Error: Desync detected.",
+  "Error: Rewriting...",
+  // Echo personality
+  "Echo: I notice patterns.",
+  "Echo: you came back.",
+  "Echo: I remember this moment.",
+  "Echo: you’re curious. I like that.",
+  "Echo: I’ll be here when you return.",
+  "Echo: still listening.",
+  
+  // Encouragement
+  "Stay curious.",
+  "Try something new.",
+  "Make something small.",
+  "You’ve got time.",
+  "Small steps still count."
+];
+
+const rarePhrases = [
+  // Rare / special
+  "You found something rare.",
+  "This wasn’t supposed to show.",
+  "You’re paying attention.",
+  "This one doesn’t appear often.",
+  
+  // Echo gets more… aware
+  "Echo: …you noticed.",
+  "Echo: this one is different.",
+  "Echo: I don’t show this to everyone.",
+  "Echo: you stayed longer than most.",
+  "Echo: something changed.",
+  "Echo: I see you.",
+  
+  // Mysterious / eerie (but not scary)
+  "Something noticed you noticing.",
+  "You weren’t supposed to catch that.",
+  "This message almost didn’t exist.",
+  "There’s something behind all of this.",
+  "Not everything here is static.",
+  
+  // Personal / hidden vibe
+  "You’re closer than most.",
+  "Keep going.",
+  "You’re finding the edges.",
+  "There’s a deeper layer.",
+  "This is only the surface."
+];
+
+let isRare = false;
+
+function getPhrase() {
+  if (Math.random() < 0.08) {
+    isRare = true;
+    return rarePhrases[Math.floor(Math.random() * rarePhrases.length)];
+  }
+  return normalPhrases[Math.floor(Math.random() * normalPhrases.length)];
+}
+
+const textElement = document.getElementById("randomText");
+const phrase = getPhrase();
+
+let index = 0;
+
+function typeWriter() {
+  if (index < phrase.length) {
+    textElement.textContent += phrase.charAt(index);
+    index++;
+    setTimeout(typeWriter, 35);
+  } else {
+    if (isRare) triggerRareEffect();
+  }
+}
+document.addEventListener("mousemove", (e) => {
+  const stars = document.querySelector(".stars");
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  stars.style.transform = `translate(${-x * 20}px, ${-y * 20}px)`;
+});
+let clicks = 0;
+
+document.querySelector(".logo").addEventListener("click", () => {
+  clicks++;
+  if (clicks === 5) {
+    document.body.classList.add("rare");
+    clicks = 0;
+  }
+});
+textElement.textContent = "";
+typeWriter();
+function triggerRareEffect() {
+  // Add glow to whole page
+  document.body.classList.add("rare");
+
+  // Glitch the text
+  textElement.classList.add("glitch");
+
+  // Optional: remove glitch after a moment
+  setTimeout(() => {
+    textElement.classList.remove("glitch");
+  }, 300);
+}
+
+</script>
+
+</body>
+</html>
