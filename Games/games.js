@@ -89,8 +89,173 @@ const games = [
     name: "Sonic.exe",
     file: "Files/sonic_exe.html",
     desc: "This isn’t the version you remember. And it knows you’re here."
-  }
+  },
 
+   {
+    name: "8-ball Billiards Classic",
+    file: "Files/8ball_pool.html",
+    desc: "The classic game of skill and strategy."
+  },
+ {
+    name: "A bite at Freddy’s",
+    file: "Files/A Bite at Freddy's.html",
+    desc: "The classic game of skill and strategy."
+  },
+  {
+    name: "A Game about Feeding a Black Hole",
+    file: "Files/A Game About Feeding A Black Hole.html",
+    desc: "The classic game of skill and strategy."
+  },
+  {
+    name: "Adventure Capitalist",
+    file: "Files/adventure_capitalist.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Age of War 2",
+    file: "Files/age_of_war_2.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Amanda the Adventurer",
+    file: "Files/Amanda the Adventurer.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Awesome Tanks 2",
+    file: "Files/Awesome Tanks 2.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Bad Monday Simulator",
+    file: "Files/Bad Monday Simulator.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Bendy and the Ink Machine",
+    file: "Files/bendy_and_the_ink_machine__all_chapters.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Bergantruck 201x",
+    file: "Files/BERGENTRUCK 201x.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Burrito Bison",
+    file: "Files/burrito_bison.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Celeste",
+    file: "Files/celeste.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Christmas Massacre",
+    file: "Files/christmas_massacre.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "City Smash",
+    file: "Files/city_smash.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Cuphead",
+    file: "Files/cup_head.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Deepest Sword",
+    file: "Files/deepest_sword.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Do NOT take this Cat home",
+    file: "Files/Do NOT Take This Cat Home.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Five Nights at Candy's 1",
+    file: "Files/five_nights_at_candy_s_1.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "FNF Hit Singles",
+    file: "Files/fnf_hit_single.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "FNF Rewrite",
+    file: "Files/fnf_rewrite.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Geometry Dash",
+    file: "Files/geometry_dash.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Happy Wheels",
+    file: "Files/happy_wheels.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Hollow Knight",
+    file: "Files/Hollow Knight.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Idle Dice",
+    file: "Files/Idle Dice.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+  {
+    name: "Idle Mining Empire",
+    file: "Files/idle_mining_empire.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "In Stars and Time",
+    file: "Files/In Stars and Time.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Lego Batman 2",
+    file: "Files/lego_batman_2.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Lego Starwars: The Complete Saga",
+    file: "Files/lego_starwars_complete_saga.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Look Outside",
+    file: "Files/Look Outside.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Midnight Shift",
+    file: "Files/midnight_shift.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Minecraft 1.21.4",
+    file: "Files/Minecraft 1.21.4.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Papers, Please",
+    file: "Files/Papers, Please.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
+   {
+    name: "Pixel Gun 3D",
+    file: "Files/pixel_gun_3d.html",
+    desc: "A potato with weapons. It shouldn’t work. It really does."
+  },
 ];
 
 

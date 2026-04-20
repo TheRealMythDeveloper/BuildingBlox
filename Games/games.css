@@ -108,3 +108,36 @@
   transition: opacity 0.5s ease;
   z-index: 200;
 }
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #050510, #000);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 150;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-text {
+  color: #7fdfff;
+  font-size: 22px;
+  text-shadow: 0 0 12px #7fdfff;
+  letter-spacing: 2px;
+}
+.loading-text {
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
