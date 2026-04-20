@@ -141,3 +141,24 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.85; }
 }
+
+#sortSelect {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 9999;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+
+  background: rgba(20, 20, 40, 0.8);
+  color: white;
+  backdrop-filter: blur(6px);
+
+  font-size: 14px;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}

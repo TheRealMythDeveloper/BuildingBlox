@@ -1,261 +1,228 @@
 const games = [
 
   {
+    date: "2026-04-20",
     name: "Ragdoll Archers",
     file: "Files/ragdoll_archers.html",
-    desc: "Physics is your weapon. Arrows are suggestions. Every shot is chaos—and somehow, it works."
+    desc: "Aim is optional. Gravity has opinions. Victory is mostly accidental."
   },
   {
+    date: "2026-04-20",
     name: "Final Fantasy VII",
     file: "Files/final_fantasy_vii.html",
-    desc: "A shattered world, a silent mercenary, and a story that refuses to stay small."
+    desc: "Big sword. Bigger feelings. Somehow both save the world."
   },
   {
+    date: "2026-04-20",
     name: "Endoparasitic",
     file: "Files/endoparasitic.html",
-    desc: "One arm. One objective. Remove the infection before it removes you."
+    desc: "You have one arm and several problems. None of them are optional."
   },
   {
+    date: "2026-04-20",
     name: "Endoparasitic 2",
     file: "Files/endoparasitic_2.html",
-    desc: "It adapted. So did you. The infection spreads—but you’re not done yet."
+    desc: "Round two. The infection upgraded. Unfortunately, so did your suffering."
   },
   {
+    date: "2026-04-20",
     name: "Bank Robbery 3",
     file: "Files/bank_robbery_3.html",
-    desc: "Plans are optional. Chaos is guaranteed. Try to leave richer than you arrived."
+    desc: "Step 1: Make a plan. Step 2: Ignore it immediately."
   },
   {
+    date: "2026-04-20",
     name: "People Playground",
     file: "Files/people_playground.html",
-    desc: "A sandbox of physics, curiosity… and questionable decisions."
+    desc: "Science, but with zero ethics and unlimited curiosity."
   },
   {
+    date: "2026-04-20",
     name: "Tiletopia",
     file: "Files/tiletopia.html",
-    desc: "Piece by piece, a world forms. What you build says more than you think."
+    desc: "Build something beautiful. Then accidentally ruin it."
   },
   {
+    date: "2026-04-20",
     name: "Generic Fighter Maybe",
     file: "Files/generic_fighter_maybe.html",
-    desc: "It looks simple. It isn’t. Every move matters more than you expect."
+    desc: "It’s called generic. It absolutely is not."
   },
   {
+    date: "2026-04-20",
     name: "Dungeons & Degenerate Gamblers",
     file: "Files/dungeons___degenerate_gamblers.html",
-    desc: "Gold, risk, and terrible decisions. The deeper you go, the less you leave with."
+    desc: "Rolling dice is a strategy. A terrible one. Do it anyway."
   },
   {
+    date: "2026-04-20",
     name: "EaglerCraft 1.11.2",
     file: "Files/eag1_11_2.html",
-    desc: "A familiar blocky universe, running where it shouldn’t. Build anyway."
+    desc: "Minecraft, but it escaped containment and now lives in your browser."
   },
   {
+    date: "2026-04-20",
     name: "Cloverpit",
     file: "Files/cloverpit.html",
-    desc: "It looks peaceful. It isn’t. Stay a little longer… you’ll see."
+    desc: "It looks peaceful. That’s how it gets you."
   },
   {
+    date: "2026-04-20",
     name: "Untitled Goose Game",
     file: "Files/untitled_goose_game.html",
-    desc: "You are the problem. Honk accordingly."
+    desc: "You are chaos with feathers. Honk responsibly. Or don’t."
   },
   {
+    date: "2026-04-20",
     name: "Superhot",
     file: "Files/superhot.html",
-    desc: "Time moves when you do. Every step is a decision you can’t take back."
+    desc: "Time only moves when you do. So… maybe don’t panic."
   },
   {
+    date: "2026-04-20",
     name: "Survivor.io",
     file: "Files/survivor_io.html",
-    desc: "Endless waves. No escape. Just how long you can last."
+    desc: "Everything wants you gone. Stay anyway."
   },
   {
+    date: "2026-04-20",
     name: "Ultrakill",
     file: "Files/ultrakill.html",
-    desc: "Speed is survival. Style is mandatory. Violence is an art form."
+    desc: "Move fast. Shoot faster. Style harder than necessary."
   },
   {
+    date: "2026-04-20",
     name: "Oneshot",
     file: "Files/oneshot.html",
-    desc: "You only get one chance. And someone is depending on you to use it well."
+    desc: "You get one chance. No pressure. Just everything."
   },
   {
+    date: "2026-04-20",
     name: "Brotato",
     file: "Files/brotato.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "A potato with weapons. Evolution has peaked."
   },
   {
+    date: "2026-04-20",
     name: "Sonic.exe",
     file: "Files/sonic_exe.html",
-    desc: "This isn’t the version you remember. And it knows you’re here."
+    desc: "Childhood nostalgia… slightly corrupted."
   },
-
-   {
+  {
+    date: "2026-04-20",
     name: "8-ball Billiards Classic",
     file: "Files/8ball_pool.html",
-    desc: "The classic game of skill and strategy."
+    desc: "Line it up. Miss anyway. Blame physics."
   },
- {
+  {
+    date: "2026-04-20",
     name: "A bite at Freddy’s",
     file: "Files/A Bite at Freddy's.html",
-    desc: "The classic game of skill and strategy."
+    desc: "Watch the doors. Watch the cameras. Don’t blink."
   },
   {
+    date: "2026-04-20",
     name: "A Game about Feeding a Black Hole",
     file: "Files/A Game About Feeding A Black Hole.html",
-    desc: "The classic game of skill and strategy."
+    desc: "Everything fits eventually. Everything."
   },
   {
+    date: "2026-04-20",
     name: "Adventure Capitalist",
     file: "Files/adventure_capitalist.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Numbers go up. Morality goes down."
   },
   {
+    date: "2026-04-20",
     name: "Age of War 2",
     file: "Files/age_of_war_2.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Evolve or get deleted by history."
   },
   {
+    date: "2026-04-20",
     name: "Amanda the Adventurer",
     file: "Files/Amanda the Adventurer.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "It’s educational. Technically."
   },
-   {
+  {
+    date: "2026-04-20",
     name: "Awesome Tanks 2",
     file: "Files/Awesome Tanks 2.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Subtlety is not installed."
   },
   {
+    date: "2026-04-20",
     name: "Bad Monday Simulator",
     file: "Files/Bad Monday Simulator.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "You woke up. That was mistake one."
   },
   {
+    date: "2026-04-20",
     name: "Bendy and the Ink Machine",
     file: "Files/bendy_and_the_ink_machine__all_chapters.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Bergantruck 201x",
-    file: "Files/BERGENTRUCK 201x.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Cartoons were better when they stayed on paper."
   },
   {
+    date: "2026-04-20",
     name: "Burrito Bison",
     file: "Files/burrito_bison.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Launch yourself into poor decisions at high speed."
   },
   {
+    date: "2026-04-20",
     name: "Celeste",
     file: "Files/celeste.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Climb a mountain. Also your own thoughts."
   },
   {
-    name: "Christmas Massacre",
-    file: "Files/christmas_massacre.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "City Smash",
-    file: "Files/city_smash.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-  {
+    date: "2026-04-20",
     name: "Cuphead",
     file: "Files/cup_head.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Looks cute. Fights like it hates you."
   },
   {
-    name: "Deepest Sword",
-    file: "Files/deepest_sword.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Do NOT take this Cat home",
-    file: "Files/Do NOT Take This Cat Home.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-  {
-    name: "Five Nights at Candy's 1",
-    file: "Files/five_nights_at_candy_s_1.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "FNF Hit Singles",
-    file: "Files/fnf_hit_single.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "FNF Rewrite",
-    file: "Files/fnf_rewrite.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
+    date: "2026-04-20",
     name: "Geometry Dash",
     file: "Files/geometry_dash.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Happy Wheels",
-    file: "Files/happy_wheels.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Hollow Knight",
-    file: "Files/Hollow Knight.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Idle Dice",
-    file: "Files/Idle Dice.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Jump. Die. Learn nothing. Repeat anyway."
   },
   {
-    name: "Idle Mining Empire",
-    file: "Files/idle_mining_empire.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    date: "2026-04-20",
+    name: "Happy Wheels",
+    file: "Files/happy_wheels.html",
+    desc: "Physics has no mercy. Neither does this game."
   },
-   {
-    name: "In Stars and Time",
-    file: "Files/In Stars and Time.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+  {
+    date: "2026-04-20",
+    name: "Hollow Knight",
+    file: "Files/Hollow Knight.html",
+    desc: "A quiet world filled with things that definitely aren’t friendly."
   },
-   {
-    name: "Lego Batman 2",
-    file: "Files/lego_batman_2.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Lego Starwars: The Complete Saga",
-    file: "Files/lego_starwars_complete_saga.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Look Outside",
-    file: "Files/Look Outside.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
-    name: "Midnight Shift",
-    file: "Files/midnight_shift.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
-  },
-   {
+  {
+    date: "2026-04-20",
     name: "Minecraft 1.21.4",
     file: "Files/Minecraft 1.21.4.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Build a house. Dig a hole. Forget why you started."
   },
-   {
+  {
+    date: "2026-04-20",
     name: "Papers, Please",
     file: "Files/Papers, Please.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+    desc: "Stamp papers. Question your existence."
   },
-   {
-    name: "Pixel Gun 3D",
-    file: "Files/pixel_gun_3d.html",
-    desc: "A potato with weapons. It shouldn’t work. It really does."
+  {
+    date: "2026-04-20",
+    name: "Terraria",
+    file: "Files/terraria.html",
+    desc: "Dig too deep. Regret immediately."
   },
+  {
+    date: "2026-04-20",
+    name: "World Box",
+    file: "Files/celeste.html",
+    desc: "Create life. Destroy it. Repeat. Godhood is busy."
+  }
+
 ];
 
 
@@ -370,7 +337,80 @@ const quickExitMessages = [
   "Error: Rewriting...",
 
 ]
+// =======================
+// SORTING SYSTEM
+// =======================
+function sortGames(games, type) {
+  let sorted = [...games];
 
+  if (type === "newest") {
+    sorted.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+  }
+
+  if (type === "az") {
+    sorted.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  if (type === "za") {
+    sorted.sort((a, b) => b.name.localeCompare(a.name));
+  }
+
+  return sorted;
+}
+
+// =======================
+// RENDER SYSTEM
+// =======================
+function renderGames(sortType = "newest") {
+  const container = document.getElementById("gamesContainer");
+  container.innerHTML = "";
+
+  let gameList = [...games];
+
+  // Rare hidden game 👁️
+  if (Math.random() < 0.05) {
+    gameList.push({
+      date: "????-??-??",
+      name: "???",
+      file: "games/hidden.html",
+      desc: "You weren’t supposed to find this."
+    });
+  }
+
+  const sorted = sortGames(gameList, sortType);
+
+  sorted.forEach(game => {
+    const card = document.createElement("div");
+    card.className = "game-card";
+
+    card.innerHTML = `
+      <h3>${game.name}</h3>
+      <p>${game.desc}</p>
+    `;
+
+    card.onclick = () => openGame(game.file);
+
+    container.appendChild(card);
+  });
+}
+
+// =======================
+// DROPDOWN HOOK
+// =======================
+const select = document.getElementById("sortSelect");
+
+select.addEventListener("change", () => {
+  renderGames(select.value);
+});
+
+// =======================
+// INITIAL LOAD
+// =======================
+renderGames("newest");
+
+// =======================
+// GAME OPEN / CLOSE
+// =======================
 let gameStartTime = 0;
 
 function openGame(path) {
@@ -380,9 +420,8 @@ function openGame(path) {
   frame.src = path;
   overlay.classList.remove("hidden");
 
-  gameStartTime = Date.now(); // track start time
+  gameStartTime = Date.now();
 }
-  
 
 function closeGame() {
   const overlay = document.getElementById("gameOverlay");
@@ -395,91 +434,73 @@ function closeGame() {
 
   if (timeSpent < 2000) {
     showEchoMessage([
-        
-  "Err̴or: S̶tate unsta̸ble.",
-  "Error: Rea̴li̶ty mismatch.",
-  "E̷r̵r̶o̴r̷: Outc̸ome shiftin̵g.",
-  "Error: Syst— ...resume.",
-  "Error: That wasn’t there before.",
-  "Err— wait.",
-  "Error: Something moved.",
-  "Error: That path changed.",
-  "Error: Desync detected.",
-  "Error: Rewriting...",
+      
+ "Err̴or: S̶tate unsta̸ble.",
+ "Error: Rea̴li̶ty mismatch.",
+ "E̷r̵r̶o̴r̷: Outc̸ome shiftin̵g.",
+ "Error: Syst— ...resume.",
+ "Error: That wasn’t there before.",
+ "Err— wait.",
+ "Error: Something moved.",
+ "Error: That path changed.",
+ "Error: Desync detected.",
+ "Error: Rewriting...",
 
-  "Nope.",
-  "That was immediate.",
-  "You didn’t even blink.",
-  "Instant rejection.",
-  "You opened it just to leave?",
-  "That lasted… nothing.",
-  "Not even a second thought.",
-  "Denied.",
-  "You said no instantly.",
-  "That was a reflex.",
-  "You backed out before it began.",
-  "Immediate exit detected.",
-  "You weren’t feeling that at all.",
-  "That was over before it started.",
-  "Speedrun: avoidance.",
-  "You hovered and left.",
-  "That didn’t stand a chance.",
-  "You gave it zero time.",
-  "You saw enough instantly.",
-  "That was decisive.",
-  "No hesitation. Just no.",
-  "You closed that with confidence.",
-  "You trusted your instincts. Brutal.",
-  "That didn’t pass the vibe check.",
-  "You didn’t even try to pretend.",
-  "You were gone instantly.",
-  "That was rejected on sight.",
-  "You dipped immediately.",
-  "You made that decision fast.",
-  "That wasn’t even considered.",
-  "You skipped the experience entirely.",
-  "That was almost impressive.",
-  "You gave it absolutely nothing.",
-  "You left before it could begin.",
-  "That was a hard no.",
-  "You didn’t stick around for answers.",
-  "You already knew.",
-  "That didn’t deserve your time, apparently.",
-  "You ended that instantly.",
-  "That was… efficient."
+
+ "Nope.",
+ "That was immediate.",
+ "You didn’t even blink.",
+ "Instant rejection.",
+ "You opened it just to leave?",
+ "That lasted… nothing.",
+ "Not even a second thought.",
+ "Denied.",
+ "You said no instantly.",
+ "That was a reflex.",
+ "You backed out before it began.",
+ "Immediate exit detected.",
+ "You weren’t feeling that at all.",
+ "That was over before it started.",
+ "Speedrun: avoidance.",
+ "You hovered and left.",
+ "That didn’t stand a chance.",
+ "You gave it zero time.",
+ "You saw enough instantly.",
+ "That was decisive.",
+ "No hesitation. Just no.",
+ "You closed that with confidence.",
+ "You trusted your instincts. Brutal.",
+ "That didn’t pass the vibe check.",
+ "You didn’t even try to pretend.",
+ "You were gone instantly.",
+ "That was rejected on sight.",
+ "You dipped immediately.",
+ "You made that decision fast.",
+ "That wasn’t even considered.",
+ "You skipped the experience entirely.",
+ "That was almost impressive.",
+ "You gave it absolutely nothing.",
+ "You left before it could begin.",
+ "That was a hard no.",
+ "You didn’t stick around for answers.",
+ "You already knew.",
+ "That didn’t deserve your time, apparently.",
+ "You ended that instantly.",
+ "That was… efficient."
 ]);
-  } else if (timeSpent < 5000) {
+
+  } 
+  else if (timeSpent < 5000) {
     showEchoMessage(quickExitMessages);
-  } else {
-    showEchoMessage(); // normal messages
+  } 
+  else {
+    showEchoMessage();
   }
 }
-const container = document.getElementById("gamesContainer");
 
-games.forEach(game => {
-  const card = document.createElement("div");
-  card.className = "game-card";
-
-  card.innerHTML = `
-    <h3>${game.name}</h3>
-    <p>${game.desc}</p>
-  `;
-
-  card.onclick = () => {
-    openGame(game.file);
-  };
-
-  container.appendChild(card);
-});
-
-if (Math.random() < 0.05) {
-  games.push({
-    name: "???",
-    file: "games/hidden.html",
-    desc: "You weren’t supposed to find this."
-  });
-}
-
+// =======================
+// ECHO SYSTEM
+// =======================
 function showEchoMessage(customPool = null) {
   const el = document.getElementById("echoMessage");
 
