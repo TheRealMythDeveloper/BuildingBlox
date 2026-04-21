@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="overflow.css">
 </head>
 <body>
-
+<div id="cursor"></div>
   <div class="stars"></div>
   <div class="stars2"></div>
 
@@ -196,7 +196,12 @@ function triggerRareEffect() {
     textElement.classList.remove("glitch");
   }, 300);
 }
+const cursor = document.getElementById("cursor");
 
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
 </script>
 
 </body>

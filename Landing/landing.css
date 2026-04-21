@@ -153,3 +153,18 @@ body.fade-out {
   opacity: 0;
   transition: opacity 0.8s ease;
 }
+body {
+  cursor: none;
+}
+#cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #00ffcc;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
+}

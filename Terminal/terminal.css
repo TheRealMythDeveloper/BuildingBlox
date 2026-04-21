@@ -14,8 +14,10 @@ body {
   height: 100%;
   padding: 20px;
   white-space: pre-wrap;
-  background: black;
+  background: transparent;
   color: #00ffcc;
+
+ z-index: 10;
 
   /* Smooth flicker + fade */
   transition: opacity 0.15s, transform 0.05s;
@@ -24,35 +26,89 @@ body {
 .terminal {
   padding: 20px;
   height: 100vh;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
 }
 
-.hidden {
-  display: none;
-}
 
-#output {
-  flex: 1;
-  overflow-y: auto;
-  white-space: pre-wrap;
-}
-
-.input-line {
-  display: flex;
-  align-items: center;
-}
 
 .prompt {
   margin-right: 8px;
 }
 
+
+/* Disable text selection everywhere */
+body, #boot-screen, .terminal {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+
+body {
+  cursor: none;
+}
+#cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #00ffcc;
+  border-radius: 50%;
+  pointer-events: none;
+
+  z-index: 99999; /* 👈 increase this */
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
+}
+
+
+
+#typed {
+  white-space: pre;
+  margin-left: 2px;
+}
+
+#fake-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background: #00ffcc;
+  margin-left: 2px;
+
+  animation: blink 1s infinite;
+  box-shadow: 0 0 6px #00ffcc; /* 👈 subtle glow */
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
 input {
-  background: transparent;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+
   border: none;
   outline: none;
-  color: #00ffcc;
-  font-family: inherit;
-  font-size: 16px;
-  width: 100%;
+
+  pointer-events: none;
+}
+#output {
+  flex: 1;
+  overflow-y: auto;
+}
+.input-line {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+#boot-input {
+  opacity: 0.6; /* slightly dim during boot */
+}
+.input-line {
+  flex-shrink: 0; /* 👈 prevents it from being pushed away */
 }

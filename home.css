@@ -59,7 +59,9 @@ body {
 .nav-links a:hover {
   color: #7fdfff;
 }
-
+body {
+  cursor: none;
+}
 /* Underline animation */
 .nav-links a::after {
   content: "";
@@ -159,4 +161,16 @@ body.rare::after {
   50% { transform: translate(1px, -1px); }
   75% { transform: translate(-1px, -1px); }
   100% { transform: translate(0); }
+}
+#cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #00ffcc;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
 }

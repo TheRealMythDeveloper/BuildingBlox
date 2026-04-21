@@ -2,6 +2,7 @@ const input = document.getElementById("input");
 const output = document.getElementById("output");
 const bootScreen = document.getElementById("boot-screen");
 const terminal = document.querySelector(".terminal");
+const bootInput = document.getElementById("boot-input");
 
 let flickering = false;
 
@@ -66,6 +67,8 @@ setTimeout(() => {
     }
   }, 500);
 }
+bootInput.classList.remove("hidden");
+input.focus();
 function runBootSequence() {
   if (index < bootLines.length) {
 
@@ -90,8 +93,12 @@ function runBootSequence() {
 
       setTimeout(() => {
         bootScreen.style.display = "none";
-        terminal.classList.remove("hidden");
-        startTerminal();
+   terminal.classList.remove("hidden");
+bootInput.style.opacity = "1";
+bootComplete = true;
+ // ✅ NOW it’s correct timing
+
+startTerminal();
       }, 200);
 
     }, 1000);
@@ -100,10 +107,12 @@ function runBootSequence() {
 runBootSequence();
 
 
+
 // ======================
 // TERMINAL SYSTEM
 // ======================
-
+const OVERRIDE_PASSWORD = "MYTHOSADMIN13"; // 👈 change this
+let bootComplete = false;
 const commands = {
   help: `
 Available commands:
@@ -132,7 +141,7 @@ Expanding the universe, one page at a time.
 
 // Output printer
 function print(text) {
-  output.innerHTML += text + "\n\n";
+  output.innerHTML += `<div>${text}</div>`;
   output.scrollTop = output.scrollHeight;
 }
 
@@ -154,16 +163,72 @@ function handleCommand(cmd) {
   }
 }
 
-// Input listener
-input.addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
-    handleCommand(input.value);
-    input.value = "";
-  }
-});
+
 
 // Terminal boot message
 function startTerminal() {
   print("MYTHOS TERMINAL [v1.0]");
+  print("Type 'help' to begin.");
+
+  input.focus(); // 👈 THIS FIXES IT
+}
+document.addEventListener("click", () => {
+  input.focus();
+});
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+
+document.addEventListener("keydown", () => {
+  input.focus();
+});
+const typed = document.getElementById("typed");
+
+input.addEventListener("input", () => {
+  typed.textContent = input.value;
+});
+input.addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+
+    const value = input.value.trim();
+
+    // DURING BOOT: check override
+    if (!bootComplete) {
+      if (value.startsWith("override")) {
+
+        const parts = value.split(" ");
+        const password = parts[1];
+
+        if (password === OVERRIDE_PASSWORD) {
+          forceBootComplete();
+        } else {
+          print("> ACCESS DENIED");
+        }
+
+      } else {
+        print("> SYSTEM BUSY");
+      }
+
+    } else {
+      handleCommand(value);
+    }
+
+    input.value = "";
+    typed.textContent = "";
+  }
+});
+
+function forceBootComplete() {
+  bootScreen.style.display = "none";
+  terminal.classList.remove("hidden");
+
+  bootComplete = true;
+
+  print("MYTHOS TERMINAL [v1.0]");
+  print("Override accepted.");
   print("Type 'help' to begin.");
 }
