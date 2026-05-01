@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System</title>
+  <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+
+  <!-- Stars background -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <div class="logo">SYSTEM</div>
+    <div class="nav-links">
+      <a href="/">HOME</a>
+      <a href="/games">GAMES</a>
+      <a href="/tools">TOOLS</a>
+      <a href="/system">SYSTEM</a>
+    </div>
+  </div>
+
+  <!-- Terminal -->
+  <div class="terminal">
+
+    <div class="terminal-header">
+      SYSTEM.LOG // SESSION ACTIVE
+    </div>
+   <div class="input-line">
+  <span class="prompt">></span>
+  <input id="terminalInput" type="text" autocomplete="off" />
+</div>
+    <div class="terminal-body" id="logContainer">
+      <!-- Logs get injected here -->
+    
+
+    </div>
+  </div>
+<script src="terminal.js"></script>
+</body>
+</html>

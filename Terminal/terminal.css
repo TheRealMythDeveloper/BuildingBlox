@@ -1,0 +1,334 @@
+
+
+/* Header bar */
+.terminal-header {
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(127, 223, 255, 0.15);
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+/* Log content */
+.terminal-body {
+  padding: 20px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cfefff;
+
+  height: calc(100% - 40px);
+  overflow-y: auto;
+}
+
+/* Individual log lines */
+.log-line {
+  opacity: 0;
+  transform: translateY(5px);
+  animation: fadeIn 0.5s forwards;
+}
+.input-line {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  border-top: 1px solid rgba(127, 223, 255, 0.1);
+  padding-top: 10px;
+ 
+ padding-left:20px;
+}
+
+.prompt {
+  margin-right: 10px;
+  color: #7fdfff;
+  text-shadow: 0 0 8px rgba(127, 223, 255, 0.4);
+}
+
+#terminalInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #cfefff;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+padding-left:20px;
+}
+
+.terminal-body {
+  scroll-behavior: smooth;
+}
+
+
+/* Slight glow for important lines */
+.log-line.highlight {
+  color: #7fdfff;
+  text-shadow: 0 0 8px rgba(127, 223, 255, 0.5);
+}
+
+/* Weird/glitch lines */
+.log-line.glitch {
+  color: #a8ffff;
+  animation: glitch 0.2s steps(2, end) 2;
+}
+
+/* Typing cursor */
+.cursor-blink::after {
+  content: "_";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, #050510, #000000);
+  color: antiquewhite;
+  overflow:hidden;
+}
+
+
+.nav {
+  position: relative;
+  z-index: 10;   /* ensures it's above stars */
+
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 80%;
+  padding: 10px 20px;
+
+  background: rgba(5, 5, 16, 0.75);
+  border-radius: 20px;
+  border: 1px solid rgba(127, 223, 255, 0.2);
+  box-shadow: 0 0 20px rgba(127, 223, 255, 0.1);
+
+  
+
+}
+
+/* Logo */
+.logo {
+  letter-spacing: 4px;
+  font-weight: bold;
+  color: rgb(224, 224, 224);
+  text-shadow: 0 0 10px #7fdfff;
+}
+.logo {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+}
+/* Links */
+.nav-links a {
+    letter-spacing: 4px;
+  font-weight: bold;
+  margin-left: 20px;
+  text-decoration: none;
+  color: antiquewhite;
+  position: relative;
+  transition: 0.3s;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+}
+
+/* Hover glow */
+.nav-links a:hover {
+  color: #7fdfff;
+}
+body {
+  cursor: none;
+}
+/* Underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #7fdfff;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Main section */
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.main h1 {
+  font-size: 50px;
+}
+
+.main p {
+  opacity: 0.7;
+}
+
+/* Stars (reuse from before) */
+.stars {
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  animation: moveStars 120s linear infinite;
+  opacity: 0.4;
+}
+/* Near stars (faster) */
+.stars2 {
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  position: absolute;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.7;
+}
+
+
+@keyframes moveStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-500px, -500px); }
+}
+
+@keyframes navGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(127, 223, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(127, 223, 255, 0.25);
+  }
+}
+
+.nav {
+  animation: navGlow 6s ease-in-out infinite;
+}
+body.rare::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(127,223,255,0.15), transparent 60%);
+  animation: pulse 1s ease-out;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+.glitch {
+  animation: glitch 0.2s steps(2, end) 3;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  25% { transform: translate(-1px, 1px); }
+  50% { transform: translate(1px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0); }
+}
+#cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #00ffcc;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
+}
+
+.terminal {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+  max-width: 1000px;
+  height: 80%;
+
+  background: rgba(5, 5, 16, 0.85);
+  border-radius: 20px;
+  border: 1px solid rgba(127, 223, 255, 0.2);
+
+  box-shadow: 
+    0 0 25px rgba(127, 223, 255, 0.08),
+    inset 0 0 20px rgba(127, 223, 255, 0.05);
+
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden; /* IMPORTANT */
+}
+
+
+
+.input-line {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.9);
+
+  border-bottom: 1px solid rgba(127, 223, 255, 0.2);
+
+  z-index: 5;
+}
+
+
+/* Input styling */
+#terminalInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #cfefff;
+  font-family: "Courier New", monospace;
+}
+
+.terminal-body {
+  flex: 1;              /* fills remaining space */
+  overflow-y: auto;     /* ONLY logs scroll */
+  padding: 15px;
+
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cfefff;
+
+  scroll-behavior: smooth;
+}
