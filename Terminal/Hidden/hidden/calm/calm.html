@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>calm</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #88ffaa;
+      font-family: monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #text {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      text-align: center;
+    }
+
+    .show {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="text">...</div>
+
+<script>
+  const text = document.getElementById("text");
+
+  // Step 1: quick fade in
+  setTimeout(() => {
+    text.classList.add("show");
+  }, 100);
+
+  // Step 2: first message (very quick)
+  setTimeout(() => {
+    text.innerText = "you made it.";
+  }, 200);
+
+  // Step 3: slight shift (creates unease)
+  setTimeout(() => {
+    text.innerText = "wait...";
+  }, 500);
+
+  // Step 4: instant redirect (no time to react)
+  setTimeout(() => {
+    window.location.replace("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+  }, 700);
+</script>
+
+</body>
+</html>

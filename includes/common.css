@@ -1,0 +1,196 @@
+body {
+	font: normal 15px "Segoe UI", Arial, Helvetica, Verdana, Tahoma, sans-serif;	
+	background-image: url(../../images/background.png);
+	margin: 0;
+}
+
+main>header { font: bold 1.25em 'Times New Roman', Garamond, serif; }
+
+#slogan { font-family: 'Courier New', Courier, serif; }
+
+#gamecount { font-size: larger; }
+
+a, .sorthead { color: #0000ff; }
+
+/* main header area */
+#mainheader {
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+}
+
+#title { max-width: 100%; }
+
+#slogan { margin: 8px; }
+
+#sidebar section {
+	float: left;
+	margin-right: 0.5em;
+}
+
+nav .othersites { display: none; }
+
+footer .othersites {
+	display: block;
+	text-align: left;
+}
+
+#navskip {
+	position: absolute;
+	left: -1000px;
+	top: -1000px;
+	width: 1px;
+	height: 1px;
+	text-align: left;
+	overflow: hidden;
+}
+
+#navskip:focus, #navskip:active, #navskip:hover { 
+	position: absolute; 
+	left: 0; 
+	top: 0; 
+	width: auto; 
+	height: auto; 
+	overflow: visible;
+	background-color: #FF3;
+	border: 1px dotted #000;
+}
+
+/* menus */
+#topmenu {
+	width: 100%;
+	margin-bottom: 1.5em;
+}
+
+#topmenu div {
+	float: left;
+	height: 25px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#sidebar h2 { font-size: 1.0em; }
+
+
+/* anchors */
+a, .sorthead { text-decoration: none; }
+
+a:hover, .sorthead:hover { text-decoration: underline; }
+
+a:active {
+	color: #ff0000;
+	text-decoration: underline;
+}
+
+a img { border: 0; }
+
+
+/* general body classes */
+
+main {
+	display: block;
+	overflow: hidden;
+	margin: 0 20px;	
+}
+
+section>header {
+	background-image: none;
+}
+
+aside {
+	clear: both;
+	text-align: left;
+}
+
+section { margin-bottom: 1.5em; }
+
+form { display: table; }
+
+figcaption { text-align: center; }
+
+footer {
+	margin-top: 20px;
+	text-align: center;
+	clear: both;
+}
+
+fieldset {
+	padding: 6px;
+}
+
+/* general classes */
+#topmenu {
+	margin: 0;
+	height: 25px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.titlebar { text-align: center; }
+
+#content table { text-align: left; } /* prevents text from being justified */
+
+#detailedview, #thumbnailview { display: none; }
+
+.u { text-decoration: underline; }
+
+table.amazon { border-collapse: collapse; }
+.amazon td, .amazon th { padding: 0 3px; }
+.amazon th { text-align: center; }
+
+.section { clear: left; }
+
+.thumbnail {
+	float: left;
+	margin-right: 20px;
+	width: 162px;
+	height: 175px;
+	text-align: center;
+}
+
+.help img { vertical-align: bottom; }
+
+.centered { text-align: center; }
+
+@media screen and (max-width: 1024px) {
+	#mainheader {
+		background-image: none !important;
+	}
+
+	#sidebar, main, aside {
+		clear: both;
+		width: auto;
+		margin: 0 0 32px 0;
+		max-width: 100%;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	#mainheader {
+		font-weight: bold;
+		height: 177px;  /* 200px - padding */
+		padding-top: 23px;
+	}
+
+	#sidebar {
+		float: left;
+		margin: 0 20px 0 15px;
+	}
+	
+	#sidebar section {
+		width: 13.5em;
+		clear: both;
+	}
+
+	nav .othersites { display: block; }
+	footer .othersites { display: none; }
+
+	aside {
+		margin-left: 12px;
+		margin-top: 6px;
+		padding: 8px;
+		float: right;
+		max-width: 25%;
+	}
+}

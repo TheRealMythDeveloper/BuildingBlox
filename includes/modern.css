@@ -1,0 +1,91 @@
+pre { font-size: 1.2em; }
+
+.formlike { padding-top: 6px; }
+
+.fieldset
+{
+	border: 2px solid gray;
+	padding: 0.5em;
+	margin: 2px;
+}
+
+.legend
+{
+	margin-top: -16px;
+	padding: 0 2px;
+	display: table;
+}
+
+.amazon td, .amazon th { border: 1px solid black; }
+
+/* color definition classes */
+
+.Shareware, #topmenu { background-color: #B0D8FF; }
+.Freeware { background-color: #ACE78C; }
+.Public { background-color: #FFA0A0; }
+.alt { background-color: #FFFF68; }
+
+#sidebar section, .Shareware aside, .tabs .Shareware, .index, main { background-color: #E6EFFF; }
+#sidebar .Freeware, .Freeware aside, .tabs .Freeware, .news { background-color: #C8FFC8; }
+#sidebar .Public, .Public aside { background-color: #FFC0C0; }
+
+#topmenu .Shareware, .titlebar.Shareware, .vid th.Shareware { background: #80c8ff url(../../images/B0D8FF.gif); }
+#topmenu .Freeware, .titlebar.Freeware, .vid th.Freeware { background: #90cf50 url(../../images/ACE78C.gif); }
+#topmenu .Public, .titlebar.Public, .vid th.Public { background: #ff7070 url(../../images/FFA0A0.png); }
+#topmenu .alt { background: #ffff55 url(../../images/FFFF78.gif); }
+
+.thumbnail a { background-color: transparent; }
+#topmenu a, .titlebar { color: #ffffff; }
+a.Shareware { color: #0000ff; }
+a.Freeware { color: #007f00; }
+a.Public { color: #ff0000; }
+
+
+/* classes that relate to the menus */
+
+#topmenu div { font-weight: bold; }
+
+#sidebar a { margin-right: 0.25em; }
+#sidebar div { padding: 8px; }
+#sidebar section { border-radius: 12%; }
+
+/* general body classes */
+
+main
+{
+	padding: 12px;
+	line-height: 1.33;
+	text-align: justify;
+	background-color: #E6EFFF;
+}
+
+.title { font: bold 1.2em 'Times New Roman', Garamond; }
+
+article, .news
+{
+	margin: 0 -12px -12px -12px;
+	padding: 8px;
+}
+
+.titlebar
+{
+	height: 25px;
+	margin: -12px -12px 0 -12px;
+}
+
+.downloads td { padding: 0 20px 0 0; }
+
+.section
+{
+	border-bottom: 1px solid #969696;
+	font-family: Verdana, sans-serif;
+}
+
+.help
+{
+	background-color: #0000ff;
+	border-radius: 15px;
+	padding: 0 0.7em;
+	color: #ffffff;
+	white-space: nowrap;
+}

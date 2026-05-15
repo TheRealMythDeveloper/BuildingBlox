@@ -1,0 +1,7 @@
+🔁 Option 2: Try a raw GitHub link
+
+If you control the repo, try:
+
+https://raw.githubusercontent.com/gn-math/assets/main/174/worldbox.swf
+
+Then update your page to use that instead.

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+    <title>Endoparasitic</title>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7856P3VNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L7856P3VNT');
+    </script>
+
+
+    <link rel="stylesheet" href="style.css">
+    <link id="-gd-engine-icon" rel="icon" type="image/png" href="Endoparasitic.icon.png" />
+    <link rel="apple-touch-icon" href="Endoparasitic.apple-touch-icon.png"/>
+
+    <style>
+    #sidebarad1,
+    #sidebarad2 {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 160px;
+      height: 600px;
+      z-index: 999999;
+    }
+
+    #sidebarad1 { left: 0; }
+    #sidebarad2 { right: 0; }
+
+    .sidebar-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .sidebar-frame {
+      width: 160px;
+      height: 600px;
+      border: none;
+      display: block;
+    }
+    </style>
+</head>
+
+<body>
+
+<script src="main.js"></script>
+
+<div id="loading-text"
+     style="color:white;font-family:cursive;font-size:48px;text-align:center;margin-top:20px;">
+     LOADING...
+</div>
+
+<canvas id="canvas">
+    HTML5 canvas appears to be unsupported in the current browser.
+</canvas>
+
+<div id="status">
+    <div id="status-progress" style="display:none;">
+        <div id="status-progress-inner"></div>
+    </div>
+
+    <div id="status-indeterminate" style="display:none;">
+        <div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div>
+    </div>
+
+    <div id="status-notice" class="godot" style="display:none;"></div>
+</div>
+
+<script src="Endoparasitic.js"></script>
+
+<script>
+const GODOT_CONFIG = {
+    args: [],
+    canvasResizePolicy: 2,
+    executable: "Endoparasitic",
+    experimentalVK: false,
+    fileSizes: {
+        "Endoparasitic.pck": 129276352,
+        "Endoparasitic.wasm": 17867504
+    },
+    focusCanvas: true,
+    gdnativeLibs: []
+};
+
+var engine = new Engine(GODOT_CONFIG);
+
+window.onload = function () {
+    engine.startGame();
+};
+</script>
+
+</body>
+</html>

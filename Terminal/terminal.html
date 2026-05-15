@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System</title>
+  <link rel="stylesheet" href="terminal.css">
+    <meta name="description" content="BuildingBlox is an interactive web hub with, tools, a terminal, and calming focus pages designed for exploration and creativity." />
+
+</head>
+<body>
+
+  <!-- Stars background -->
+  <div class="stars"></div>
+  <div class="stars2"></div>
+
+  <!-- Custom cursor -->
+  <div id="cursor"></div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <div class="logo">SYSTEM</div>
+    <div class="nav-links">
+      <a href="../Home/home.html">HOME</a>
+      <a href="../Games/games.html">GAMES</a>
+      <a href="../Tools/tools.html">TOOLS</a>
+      <a href="terminal.html">SYSTEM</a>
+    </div>
+  </div>
+
+  <!-- Terminal -->
+  <div class="terminal">
+
+    <div class="terminal-header">
+      SYSTEM.LOG // SESSION ACTIVE
+    </div>
+   <div class="input-line">
+  <span class="prompt">></span>
+  <input id="terminalInput" type="text" autocomplete="off" />
+</div>
+    <div class="terminal-body" id="logContainer">
+      <!-- Logs get injected here -->
+    
+
+    </div>
+  </div>
+<script src="terminal.js"></script>
+</body>
+</html>

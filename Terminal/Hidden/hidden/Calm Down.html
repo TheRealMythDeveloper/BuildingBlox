@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>...</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a; /* calm dark blue */
+      color: #e2e8f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+button {
+  background: #38bdf8;
+  box-shadow: 0 0 15px #38bdf8;
+}
+
+    #login, #content {
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #1e293b;
+      color: white;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: black;
+      cursor: pointer;
+    }
+
+    #content {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="login">
+  <h2>Enter Password</h2>
+  <input type="password" id="password" placeholder="..." />
+  <br>
+  <button onclick="checkPassword()">Enter</button>
+  <p id="error" style="color: #f87171;"></p>
+</div>
+
+<div id="content">
+  <h1>Welcome</h1>
+  <a href="./Daylight/Daylight.html">
+    <button>Enter</button>
+  </a>
+</div>
+
+<script>
+  function checkPassword() {
+    const input = document.getElementById("password").value;
+
+    if (input === "Moonlight and Daylight bring Balance to a Mind.") {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.getElementById("error").textContent = "Wrong password";
+    }
+  }
+</script>
+
+</body>
+</html>

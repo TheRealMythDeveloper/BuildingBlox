@@ -1,0 +1,34 @@
+# Node stuff
+node_modules/
+
+# Build folders
+dist/
+build/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Large assets
+*.zip
+*.rar
+*.psd
+*.mp4
+*.mov
+
+# Python cache
+__pycache__/
+*.pyc
+
+Games/Files/TinyTowers/index.pck
+
+# Environment secrets
+.env
+Games/Files/geometrydashlite.html
+Games/Files/badparenting.html
+Games/Files/granny.html
+Games/Files/granny2.html
+Games/Files/madalinstuntcars2.html
