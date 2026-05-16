@@ -1169,6 +1169,50 @@ const games = [
   file: "Files/AstroProspector/index.html",
   desc: "Go brave hero, infilitrate the enemy, and bring a coffee addiction back!"
 },
+{
+  date: "2026-05-15",
+  name: "Gamblers Table",
+  file: "Files/GamblersTable/index.html",
+  desc: "Flip coins until you lose your mind, sounds fun right? That's why you hire slaves."
+},
+{
+  date: "2026-05-15",
+  name: "Ploink",
+  file: "Files/Ploink/index.html",
+  desc: "This game has a nuke, bomb, and a atom bomb. I love it."
+},
+{
+  date: "2026-05-15",
+  name: "Pigeon Ascent",
+  file: "Files/PigeonAscent/index.html",
+  desc: "Keep your pet pigeon safe as it battles to the death."
+},
+{
+  date: "2026-05-15",
+  name: "A Dark Forest",
+  file: "Files/DarkForest/index.html",
+  desc: "An expansional upgrade to a dark room.."
+},
+{
+  date: "2026-05-15",
+  name: "EVOLUTION",
+  file: "Files/Evolution/index.html",
+  desc: "Remember... All Evolution comes with a cost."
+},
+{
+  date: "2026-05-15",
+  name: "STACKS:Village",
+  file: "Files/StacksVillage/index.html",
+  desc: "Magic the Gathering just got a lot less magic- wait.."
+},
+{
+  date: "2026-05-15",
+  name: "Kobold Seige",
+  file: "Files/Kobold/index.html",
+  desc: "A KOBOLD. IT shall defeat all"
+},
+
+
 // endoparasitic bad paranting, madilinecars2, ragdoll archers
 ];
 

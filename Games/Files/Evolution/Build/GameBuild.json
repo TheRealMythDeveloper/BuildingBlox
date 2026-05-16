@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Planet",
+"dataUrl": "GameBuild.data.unityweb",
+"asmCodeUrl": "GameBuild.asm.code.unityweb",
+"asmMemoryUrl": "GameBuild.asm.memory.unityweb",
+"asmFrameworkUrl": "GameBuild.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#F1F1F1"
+}
