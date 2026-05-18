@@ -1,48 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>System</title>
-  <link rel="stylesheet" href="terminal.css">
-    <meta name="description" content="BuildingBlox is an interactive web hub with, tools, a terminal, and calming focus pages designed for exploration and creativity." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>About | Mythos</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+/* BACKGROUND */
+/* STARFIELD */
+
+.stars,
+.stars2,
+.stars3{
+    position:fixed;
+    inset:0;
+
+    background-repeat:repeat;
+
+    z-index:-3;
+}
+
+.stars{
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 40px 70px, white, transparent),
+        radial-gradient(1px 1px at 90px 40px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(2px 2px at 160px 120px, white, transparent);
+
+    background-size:200px 200px;
+
+    opacity:0.35;
+
+    animation:driftSlow 140s linear infinite;
+}
+
+.stars2{
+    background-image:
+        radial-gradient(1px 1px at 50px 50px, #8fb5ff, transparent),
+        radial-gradient(1px 1px at 100px 150px, white, transparent),
+        radial-gradient(2px 2px at 180px 90px, white, transparent);
+
+    background-size:300px 300px;
+
+    opacity:0.22;
+
+    animation:driftMedium 100s linear infinite;
+}
+
+.stars3{
+    background-image:
+        radial-gradient(2px 2px at 80px 120px, white, transparent),
+        radial-gradient(1px 1px at 140px 40px, #aac4ff, transparent);
+
+    background-size:400px 400px;
+
+    opacity:0.14;
+
+    animation:driftFast 70s linear infinite;
+}
+
+@keyframes driftSlow{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-400px);
+    }
+}
+
+@keyframes driftMedium{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-600px);
+    }
+}
+
+@keyframes driftFast{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-800px);
+    }
+}
+.glow{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top,
+        rgba(90,130,255,0.18),
+        transparent 55%);
+    z-index:-2;
+}
+
+@keyframes drift{
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-200px);
+    }
+}
+
+/* MAIN CARD */
+
+.container{
+    width:90%;
+    max-width:900px;
+
+    margin:80px auto;
+    padding:50px;
+
+    background:rgba(255,255,255,0.05);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    border-radius:28px;
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:
+        0 0 40px rgba(0,0,0,0.45);
+
+    position:relative;
+}
+
+/* SUBTLE HOVER LIGHT */
+
+.container::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:inherit;
+
+    background:
+    radial-gradient(circle at var(--x) var(--y),
+    rgba(255,255,255,0.08),
+    transparent 35%);
+
+    opacity:0;
+    transition:opacity 0.3s;
+    pointer-events:none;
+}
+
+.container:hover::before{
+    opacity:1;
+}
+
+/* TYPOGRAPHY */
+
+h1{
+    font-size:4rem;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.status{
+    color:#8faeff;
+    margin-bottom:45px;
+
+    font-family:monospace;
+    opacity:0.9;
+}
+
+p{
+    line-height:1.9;
+    margin-bottom:24px;
+    color:rgba(255,255,255,0.92);
+    font-size:1.05rem;
+}
+
+.section{
+    margin-top:55px;
+}
+
+.section h2{
+    color:#aac4ff;
+    margin-bottom:20px;
+    font-size:1.3rem;
+    letter-spacing:1px;
+}
+
+.list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.item{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.06);
+
+    padding:16px;
+    border-radius:16px;
+
+    transition:
+        transform 0.25s,
+        background 0.25s;
+}
+
+.item:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,0.07);
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:70px;
+    text-align:center;
+
+    opacity:0.45;
+
+    font-size:0.9rem;
+    letter-spacing:1px;
+}
+
+/* FADE-IN */
+
+.fade{
+    opacity:0;
+    transform:translateY(20px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.fade.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .container{
+        padding:30px;
+        margin:40px auto;
+    }
+
+    h1{
+        font-size:2.5rem;
+    }
+
+    p{
+        font-size:1rem;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- Stars background -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
+<div class="stars"></div>
+<div class="glow"></div>
 
-  <!-- Custom cursor -->
-  <div id="cursor"></div>
+<div class="container fade">
 
-  <!-- Navigation -->
-  <div class="nav">
-    <div class="logo">SYSTEM</div>
-    <div class="nav-links">
-      <a href="../Home/home.html">HOME</a>
-      <a href="../Games/games.html">GAMES</a>
-      <a href="../Tools/tools.html">TOOLS</a>
-      <a href="terminal.html">SYSTEM</a>
+    <h1>MYTHOS</h1>
+
+    <div class="status" id="status">
+        Initializing transmission...
     </div>
-  </div>
 
-  <!-- Terminal -->
-  <div class="terminal">
+    <p>
+        Mythos is a personal creative website focused on games,
+        experiments, interactive design, and strange ideas.
+    </p>
 
-    <div class="terminal-header">
-      SYSTEM.LOG // SESSION ACTIVE
+    <p>
+        What started as a small collection of projects slowly evolved
+        into a larger interactive world filled with hidden details,
+        custom systems, and ongoing experiments.
+    </p>
+
+    <p>
+        Some projects are polished.
+        Some are unfinished.
+        Some exist purely because they sounded interesting at 2 AM.
+    </p>
+
+    <div class="section fade">
+
+        <h2>WHAT YOU'LL FIND HERE</h2>
+
+        <div class="list">
+
+            <div class="item">Browser Games</div>
+            <div class="item">Creative Coding</div>
+            <div class="item">Interactive Systems</div>
+            <div class="item">Visual Experiments</div>
+            <div class="item">Hidden Details</div>
+            <div class="item">This Page</div>
+
+        </div>
+
     </div>
-   <div class="input-line">
-  <span class="prompt">></span>
-  <input id="terminalInput" type="text" autocomplete="off" />
+
+    <div class="section fade">
+
+        <h2>WHY IT EXISTS</h2>
+
+        <p>
+            Mythos exists as a place to experiment, learn,
+            build strange things, and create experiences that feel memorable.
+        </p>
+
+        <p>
+            The site constantly evolves as new projects,
+            systems, and ideas are added over time.
+        </p>
+
+    </div>
+
+    <div class="footer">
+        Some systems respond when spoken to correctly.
+    </div>
+
 </div>
-    <div class="terminal-body" id="logContainer">
-      <!-- Logs get injected here -->
-    
 
-    </div>
-  </div>
-<script src="terminal.js"></script>
+<script>
+
+/* STATUS TEXT */
+
+const status = document.getElementById("status");
+
+setTimeout(() => {
+    status.textContent = "Signal stable.";
+}, 1200);
+
+/* HOVER LIGHT */
+
+const container = document.querySelector(".container");
+
+container.addEventListener("mousemove", (e) => {
+
+    const rect = container.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    container.style.setProperty("--x", x + "px");
+    container.style.setProperty("--y", y + "px");
+
+});
+
+/* SCROLL FADE */
+
+const fades = document.querySelectorAll(".fade");
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+        }
+
+    });
+
+}, {
+    threshold:0.15
+});
+
+fades.forEach(fade => {
+    observer.observe(fade);
+});
+
+</script>
+
 </body>
 </html>
