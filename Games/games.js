@@ -1212,7 +1212,74 @@ const games = [
   desc: "A KOBOLD. IT shall defeat all"
 },
 
+{
+  date: "2026-05-16",
+  name: "Blastronaut",
+  file: "Files/Blastronaut/index.html",
+  desc: "Dynamite solves all your problems.. ALL the time. No Flaws."
+},
+{
+  date: "2026-05-16",
+  name: "Fair Squares",
+  file: "Files/FairSquares/index.html",
+  desc: "Ever complained about how life isnt fair? Well, now it is. Good luck!"
+},
+{
+  date: "2026-05-16",
+  name: "Killover",
+  file: "Files/Killover/index.html",
+  desc: "Kill your past self. Over and over.. For failing that math test."
+},
 
+{
+  date: "2026-05-16",
+  name: "Lored",
+  file: "Files/Lored/index.html",
+  desc: "Force little people to do completely random things."
+},
+
+{
+  date: "2026-05-16",
+  name: "Hungry Lamu",
+  file: "Files/HungryLamu/index.html",
+  desc: "..."
+},
+{
+  date: "2026-05-16",
+  name: "Autopeil",
+  file: "Files/AutoPeil/index.html",
+  desc: "Racing from every perspective.. disorienting."
+},
+{
+  date: "2026-05-16",
+  name: "Bad Bodyguards",
+  file: "Files/BadBodygaurds/index.html",
+  desc: "FIGHT OFF THE APOCOLYPSE.. with a butter knife."
+},
+{
+  date: "2026-05-16",
+  name: "Around The Core",
+  file: "Files/Aroundthecore/index.html",
+  desc: "You are the core.. the things around you are bad. Not too good of a title."
+},
+{
+  date: "2026-05-16",
+  name: "NXTWPN10",
+  file: "Files/nxtwpn10/index.html",
+  desc: "Every 10 seconds, chaos ensues. "
+},
+{
+  date: "2026-05-16",
+  name: "Twilight Beacon",
+  file: "Files/Twilight/index.html",
+  desc: "Intercept radio signals... uh.. dont ask why."
+},
+{
+  date: "2026-05-16",
+  name: "Grow your Guarden",
+  file: "Files/GrowyourGuarden/index.html",
+  desc: "Flowers have GUNS now"
+},
 // endoparasitic bad paranting, madilinecars2, ragdoll archers
 ];
 
