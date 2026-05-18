@@ -2,7 +2,7 @@ function enterSite() {
   document.body.classList.add("fade-out");
 
   setTimeout(() => {
-    window.location.href = "./index.html";
+    window.location.href = "./Index.html";
   }, 800);
 }
 document.addEventListener("mousemove", (e) => {
