@@ -1300,7 +1300,19 @@ const games = [
   name: "Ghostaphobia",
   file: "Files/Ghostaphobia/index.html",
   desc: "Paranormal investigators discover fear was justified."
-}
+},
+{
+  date: "2026-05-18",
+  name: "Crank",
+  file: "Files/Crank/index.html",
+  desc: "PULL THE LEVER CRONK"
+},
+{
+  date: "2026-05-18",
+  name: "Impeached",
+  file: "Files/Impeached/index.html",
+  desc: "You've become the president. Make America... whatever you want."
+},
 ];
 
 
