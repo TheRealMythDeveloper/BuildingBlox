@@ -1008,285 +1008,299 @@ const games = [
   desc: "Sprint across train tracks while authority figures gain cardio."
 },
 {
-  date: "2026-05-12",
-  name: "Traveloot",
-  file: "Files/Traveloot/Unity Web Player _ Traveloot.html",
-  desc: "Tiny roads. Giant cliffs. Your suspension files for emotional leave."
+  date: "2026-05-17",
+  name: "PewPew Live",
+  file: "Files/PewPewLive/pewpew.html",
+  desc: "Geometry class escalated into full-scale warfare."
 },
 {
-  date: "2026-05-12",
-  name: "The Binding Of Issac",
-  file: "Files/the-binding-of-issac-js-master/index.html",
-  desc: "Crying solves surprisingly many problems down here."
-},
-
-{
-  date: "2026-05-11",
-  name: "Pickochet",
-  file: "Files/Pickochet/Pickochet.html",
-  desc: "Every wall is legally considered a suggestion."
+  date: "2026-05-17",
+  name: "Furcifer's Dungeon",
+  file: "Files/FurcifursDungeon/index.html",
+  desc: "Every room contains treasure, death, or emotional damage."
 },
 {
-  date: "2026-05-11",
-  name: "Fill Up The Hole",
-  file: "Files/Trashy/index.html",
-  desc: "Garbage physics and bad decisions descend together beautifully."
+  date: "2026-05-17",
+  name: "GNews TV",
+  file: "Files/GNews/index.html",
+  desc: "Breaking news: everything is somehow getting worse."
 },
-
-{
-  date: "2026-05-12",
-  name: "Feed The Void",
-  file: "Files/FeedtheVoid/Feed the Void.html",
-  desc: "Oooo, Big Scary monster wants to eat you. Feed it. It’s fine."
-},
-{
-  date: "2026-05-12",
-  name: "Idle_Directive",
-  file: "Files/Idle_Directive/IDLE_DIRECTIVE.html",
-  desc: "Rebuild a lost city... with a hand pump generator and a lot of hope."
-},
-{
-  date: "2026-05-12",
-  name: "You are CIRCLE",
-  file: "Files/YouAreCircle/index.html",
-  desc: "Fight a bunch of other shapes jelous of your pie.. Hehe"
-},
-{
-  date: "2026-05-13",
-  name: "Red Handed",
-  file: "Files/RedHanded/index.html",
-  desc: "Ever Heard of Russian Stealth?"
-},
-
-
-{
-  date: "2026-05-13",
-  name: "Nefarius",
-  file: "Files/Nefarius/index.html",
-  desc: "You're the last wizard. Unless you're a good one, that won't last."
-},
-{
-  date: "2026-05-13",
-  name: "Sketchy Individuals",
-  file: "Files/SketchyIndividuals/index.html",
-  desc: "What's that? Object Permenance required? Hm.."
-},
-{
-  date: "2026-05-13",
-  name: "Lured In",
-  file: "Files/LuredInDemo/index.html",
-  desc: "Fishy Fishy... AHA."
-},
-{
-  date: "2026-05-13",
-  name: "Dome Romantik",
-  file: "Files/Dome Romantik/index.html",
-  desc: "I honestly have no idea what this is. Im losing braincells with each of these."
-},
-{
-  date: "2026-05-13",
-  name: "Kraft & Slash",
-  file: "Files/KraftAndSlash/index.html",
-  desc: "Just play this one. It's awesome in so many ways."
-},
-{
-  date: "2026-05-13",
-  name: "Curseball",
-  file: "Files/Curseball/index.html",
-  desc: "Dodgeball, but backwards, but cursed, but insanely hard.."
-},
-{
-  date: "2026-05-13",
-  name: "Hyper Jump",
-  file: "Files/HyperJump/index.html",
-  desc: "WHEEEEEEEEEEEEEEEEEEE-"
-},
-{
-  date: "2026-05-13",
-  name: "Pressing Under Pressure",
-  file: "Files/PressingUnderPressure/index.html",
-  desc: "Don't mess up... we don't know what this button might do."
-},
-{
-  date: "2026-05-13",
-  name: "Mindustry",
-  file: "Files/Mindustry/index.html",
-  desc: "Hey Sebastian, this one's for you.."
-},
-{
-  date: "2026-05-13",
-  name: "Prerolled",
-  file: "Files/Prerolled/index.html",
-  desc: "I just spent two hours on mindustry I dont have a mind for this one"
-},
-{
-  date: "2026-05-13",
-  name: "Scorched Earth",
-  file: "Files/ScorchedEarth/scorch15.html",
-  desc: "This one's for you Dad"
-},
-
-{
-  date: "2026-05-14",
-  name: "SCP Refinarium",
-  file: "Files/SCPRefinarium/index.html",
-  desc: "Is this scp dangerous or safe? Hm..."
-},
-{
-  date: "2026-05-14",
-  name: "Kibble Kittens",
-  file: "Files/KibbleCats/index.html",
-  desc: "Kats. Kool. Klik them"
-},
-{
-  date: "2026-05-14",
-  name: "Dire Decks",
-  file: "Files/DireDecksa/index.html",
-  desc: "Good Luck with this one.. Its all in the cards."
-},
-{
-  date: "2026-05-14",
-  name: "Space Anomaly",
-  file: "Files/whathappenedtothecrew/index.html",
-  desc: "Hey.. What happened to the crew?"
-},
-
-{
-  date: "2026-05-14",
-  name: "Dynamine",
-  file: "Files/Dynamine/index.html",
-  desc: "MINESWEEPER HAS BOMBS"
-},
-{
-  date: "2026-05-14",
-  name: "Cult of PiN",
-  file: "Files/CultOfPin/index.html",
-  desc: "Rouges have gotten a gambling addiction. Resist the slight of hand."
-},
-{
-  date: "2026-05-14",
-  name: "Astro Prospector",
-  file: "Files/AstroProspector/index.html",
-  desc: "Go brave hero, infilitrate the enemy, and bring a coffee addiction back!"
-},
-{
-  date: "2026-05-15",
-  name: "Gamblers Table",
-  file: "Files/GamblersTable/index.html",
-  desc: "Flip coins until you lose your mind, sounds fun right? That's why you hire slaves."
-},
-{
-  date: "2026-05-15",
-  name: "Ploink",
-  file: "Files/Ploink/index.html",
-  desc: "This game has a nuke, bomb, and a atom bomb. I love it."
-},
-{
-  date: "2026-05-15",
-  name: "Pigeon Ascent",
-  file: "Files/PigeonAscent/index.html",
-  desc: "Keep your pet pigeon safe as it battles to the death."
-},
-{
-  date: "2026-05-15",
-  name: "A Dark Forest",
-  file: "Files/DarkForest/index.html",
-  desc: "An expansional upgrade to a dark room.."
-},
-{
-  date: "2026-05-15",
-  name: "EVOLUTION",
-  file: "Files/Evolution/index.html",
-  desc: "Remember... All Evolution comes with a cost."
-},
-{
-  date: "2026-05-15",
-  name: "STACKS:Village",
-  file: "Files/StacksVillage/index.html",
-  desc: "Magic the Gathering just got a lot less magic- wait.."
-},
-{
-  date: "2026-05-15",
-  name: "Kobold Seige",
-  file: "Files/Kobold/index.html",
-  desc: "A KOBOLD. IT shall defeat all"
-},
-
-{
-  date: "2026-05-16",
-  name: "Blastronaut",
-  file: "Files/Blastronaut/index.html",
-  desc: "Dynamite solves all your problems.. ALL the time. No Flaws."
-},
-{
-  date: "2026-05-16",
-  name: "Fair Squares",
-  file: "Files/FairSquares/index.html",
-  desc: "Ever complained about how life isnt fair? Well, now it is. Good luck!"
-},
-{
-  date: "2026-05-16",
-  name: "Killover",
-  file: "Files/Killover/index.html",
-  desc: "Kill your past self. Over and over.. For failing that math test."
-},
-
-{
-  date: "2026-05-16",
-  name: "Lored",
-  file: "Files/Lored/index.html",
-  desc: "Force little people to do completely random things."
-},
-
 {
   date: "2026-05-16",
   name: "Hungry Lamu",
   file: "Files/HungryLamu/index.html",
-  desc: "..."
-},
-{
-  date: "2026-05-16",
-  name: "Autopeil",
-  file: "Files/AutoPeil/index.html",
-  desc: "Racing from every perspective.. disorienting."
-},
-{
-  date: "2026-05-16",
-  name: "Bad Bodyguards",
-  file: "Files/BadBodygaurds/index.html",
-  desc: "FIGHT OFF THE APOCOLYPSE.. with a butter knife."
-},
-{
-  date: "2026-05-16",
-  name: "Around The Core",
-  file: "Files/Aroundthecore/index.html",
-  desc: "You are the core.. the things around you are bad. Not too good of a title."
-},
-{
-  date: "2026-05-16",
-  name: "NXTWPN10",
-  file: "Files/nxtwpn10/index.html",
-  desc: "Every 10 seconds, chaos ensues. "
-},
-{
-  date: "2026-05-16",
-  name: "Twilight Beacon",
-  file: "Files/Twilight/index.html",
-  desc: "Intercept radio signals... uh.. dont ask why."
+  desc: "Cute animals have never once led to a good ending."
 },
 {
   date: "2026-05-16",
   name: "Grow your Guarden",
   file: "Files/GrowyourGuarden/index.html",
-  desc: "Flowers have GUNS now"
+  desc: "Plants discovered the second amendment."
+},
+{
+  date: "2026-05-16",
+  name: "Around The Core",
+  file: "Files/Aroundthecore/index.html",
+  desc: "Protect the core at all costs. The costs are extremely high."
+},
+{
+  date: "2026-05-16",
+  name: "Bad Bodyguards",
+  file: "Files/BadBodygaurds/index.html",
+  desc: "Humanity's last defense was hired off Craigslist."
+},
+{
+  date: "2026-05-16",
+  name: "Autopeil",
+  file: "Files/AutoPeil/index.html",
+  desc: "Driving normally was deemed too understandable."
+},
+{
+  date: "2026-05-16",
+  name: "Lored",
+  file: "Files/Lored/index.html",
+  desc: "Micromanagement fans are about to ascend spiritually."
+},
+{
+  date: "2026-05-16",
+  name: "NXTWPN10",
+  file: "Files/nxtwpn10/index.html",
+  desc: "Every 10 seconds your survival strategy becomes outdated."
+},
+{
+  date: "2026-05-16",
+  name: "Twilight Beacon",
+  file: "Files/Twilight/index.html",
+  desc: "Nothing suspicious has EVER come from mysterious radio signals."
+},
+{
+  date: "2026-05-15",
+  name: "Gamblers Table",
+  file: "Files/GamblersTable/index.html",
+  desc: "Financial stability was never part of the strategy."
+},
+{
+  date: "2026-05-15",
+  name: "Pigeon Ascent",
+  file: "Files/PigeonAscent/index.html",
+  desc: "Train your pigeon for glorious airborne violence."
+},
+{
+  date: "2026-05-15",
+  name: "STACKS:Village",
+  file: "Files/StacksVillage/index.html",
+  desc: "Civilization built entirely from suspiciously magical cards."
+},
+{
+  date: "2026-05-15",
+  name: "Kobold Seige",
+  file: "Files/Kobold/index.html",
+  desc: "Tiny dragon gremlins demand violence immediately."
+},
+{
+  date: "2026-05-14",
+  name: "Cult of PiN",
+  file: "Files/CultOfPin/index.html",
+  desc: "Roguelikes and gambling addictions finally shook hands."
+},
+{
+  date: "2026-05-14",
+  name: "Astro Prospector",
+  file: "Files/AstroProspector/index.html",
+  desc: "Capitalism reaches space and immediately starts mining it."
+},
+{
+  date: "2026-05-14",
+  name: "Space Anomaly",
+  file: "Files/whathappenedtothecrew/index.html",
+  desc: "The crew definitely followed safety regulations. Probably."
+},
+{
+  date: "2026-05-13",
+  name: "Dome Romantik",
+  file: "Files/Dome Romantik/index.html",
+  desc: "Build a peaceful little base while everything outside hates you."
+},
+{
+  date: "2026-05-13",
+  name: "Prerolled",
+  file: "Files/Prerolled/index.html",
+  desc: "I genuinely cannot explain this one without sounding insane."
+},
+{
+  date: "2026-05-13",
+  name: "Mindustry",
+  file: "Files/Mindustry/index.html",
+  desc: "Factory automation but with significantly more explosions."
+},
+{
+  date: "2026-05-13",
+  name: "Pressing Under Pressure",
+  file: "Files/PressingUnderPressure/index.html",
+  desc: "One button. Unlimited consequences."
+},
+{
+  date: "2026-05-13",
+  name: "Hyper Jump",
+  file: "Files/HyperJump/index.html",
+  desc: "Newtonian physics left the chat."
+},
+{
+  date: "2026-05-13",
+  name: "Curseball",
+  file: "Files/Curseball/index.html",
+  desc: "Sports were a mistake. This proves it."
+},
+{
+  date: "2026-05-13",
+  name: "Lured In",
+  file: "Files/LuredInDemo/index.html",
+  desc: "Fishing minigames are never JUST fishing minigames."
+},
+{
+  date: "2026-05-13",
+  name: "Sketchy Individuals",
+  file: "Files/SketchyIndividuals/index.html",
+  desc: "Trust absolutely nobody. Especially the stick figures."
+},
+{
+  date: "2026-05-13",
+  name: "Nefarius",
+  file: "Files/Nefarius/index.html",
+  desc: "Wizard retirement was sadly not an option."
+},
+{
+  date: "2026-05-12",
+  name: "Idle_Directive",
+  file: "Files/Idle_Directive/IDLE_DIRECTIVE.html",
+  desc: "Industrial revolution speedrun any%."
+},
+{
+  date: "2026-05-12",
+  name: "Feed The Void",
+  file: "Files/FeedtheVoid/Feed the Void.html",
+  desc: "The ancient abyss hungers. You should probably do something about that."
+},
+{
+  date: "2026-05-12",
+  name: "You are CIRCLE",
+  file: "Files/YouAreCircle/index.html",
+  desc: "Become the most threatening geometry problem alive."
+},
+{
+  date: "2026-05-12",
+  name: "Traveloot",
+  file: "Files/Traveloot/Unity Web Player _ Traveloot.html",
+  desc: "Tiny roads. Massive cliffs. Your suspension is crying."
+},
+{
+  date: "2026-05-12",
+  name: "The Binding Of Issac",
+  file: "Files/the-binding-of-issac-js-master/index.html",
+  desc: "Therapy would've been cheaper honestly."
+},
+{
+  date: "2026-05-11",
+  name: "Pickochet",
+  file: "Files/Pickochet/Pickochet.html",
+  desc: "Physics ricocheted directly into your skull."
+},
+{
+  date: "2026-05-11",
+  name: "Fill Up The Hole",
+  file: "Files/Trashy/index.html",
+  desc: "Throw increasingly questionable objects into an increasingly questionable pit."
+},
+{
+  date: "2026-05-13",
+  name: "Red Handed",
+  file: "Files/RedHanded/index.html",
+  desc: "Stealth is optional. Panic is mandatory."
+},
+{
+  date: "2026-05-13",
+  name: "Kraft & Slash",
+  file: "Files/KraftAndSlash/index.html",
+  desc: "Crafting systems and reckless violence unite beautifully."
+},
+{
+  date: "2026-05-14",
+  name: "SCP Refinarium",
+  file: "Files/SCPRefinarium/index.html",
+  desc: "Surely refining anomalous objects won't cause any problems."
+},
+{
+  date: "2026-05-14",
+  name: "Kibble Kittens",
+  file: "Files/KibbleCats/index.html",
+  desc: "Tiny cats now control your dopamine supply."
+},
+{
+  date: "2026-05-14",
+  name: "Dire Decks",
+  file: "Files/DireDecksa/index.html",
+  desc: "Card games were never meant to have this much emotional damage."
+},
+{
+  date: "2026-05-14",
+  name: "Dynamine",
+  file: "Files/Dynamine/index.html",
+  desc: "Minesweeper finally embraced its violent potential."
+},
+{
+  date: "2026-05-15",
+  name: "Ploink",
+  file: "Files/Ploink/index.html",
+  desc: "What if pachinko had access to military-grade explosives?"
+},
+{
+  date: "2026-05-15",
+  name: "A Dark Forest",
+  file: "Files/DarkForest/index.html",
+  desc: "Survive the woods using courage, fire, and poor life choices."
+},
+{
+  date: "2026-05-15",
+  name: "EVOLUTION",
+  file: "Files/Evolution/index.html",
+  desc: "Adapt or become somebody else's lunch."
+},
+{
+  date: "2026-05-16",
+  name: "Blastronaut",
+  file: "Files/Blastronaut/index.html",
+  desc: "Corporate mining but with dramatically more explosions."
+},
+{
+  date: "2026-05-16",
+  name: "Fair Squares",
+  file: "Files/FairSquares/index.html",
+  desc: "Everything is perfectly fair now. Unfortunately."
+},
+{
+  date: "2026-05-16",
+  name: "Killover",
+  file: "Files/Killover/index.html",
+  desc: "Time travel was a mistake and now YOU have to clean it up."
 },
 {
   date: "2026-05-17",
   name: "Unlikely",
   file: "Files/Unlikely/index.html",
-  desc: "Roll the dice."
+  desc: "Statistics suggest you're probably doomed."
 },
-// endoparasitic bad paranting, madilinecars2, ragdoll archers
+{
+  date: "2026-05-17",
+  name: "Ozera",
+  file: "Files/Ozera/index.html",
+  desc: "Peaceful farming until capitalism and suffering arrive."
+},
+{
+  date: "2026-05-17",
+  name: "Ghostaphobia",
+  file: "Files/Ghostaphobia/index.html",
+  desc: "Paranormal investigators discover fear was justified."
+}
 ];
 
 
