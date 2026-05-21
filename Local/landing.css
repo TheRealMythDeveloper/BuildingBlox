@@ -14,6 +14,49 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
 }
+.mini-card {
+  background: rgba(5, 5, 16, 0.6);
+  border: 1px solid rgba(127, 223, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+
+  backdrop-filter: blur(6px);
+  transition: 0.3s;
+}
+#miniContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 120px 40px;
+}
+@media (max-width: 900px) {
+  #miniContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #miniContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mini-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(127, 223, 255, 0.2);
+  border-color: #7fdfff;
+}
+
+.mini-card .open-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.3);
+  color: white;
+  cursor: pointer;
+}
 /* Title styling */
 .title {
   font-size: 100px;

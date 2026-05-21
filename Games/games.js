@@ -1,3 +1,7 @@
+const searchBar = document.getElementById("searchBar");
+searchBar.addEventListener("input", () => {
+  renderGames();
+});
 const games = [
 
   {
@@ -1313,6 +1317,36 @@ const games = [
   file: "Files/Impeached/index.html",
   desc: "You've become the president. Make America... whatever you want."
 },
+
+
+
+
+
+{
+  date: "2026-05-18",
+  name: "Rhythm Plus",
+  file: "Files/RythmPlus/index.html",
+  desc: "Hit notes with perfect timing or publicly embarrass yourself."
+},
+{
+  date: "2026-05-18",
+  name: "Booster Pack Heros",
+  file: "Files/BoosterPackHeros/index.html",
+  desc: "Card packs contain either unstoppable power or absolute disappointment."
+},
+{
+  date: "2026-05-18",
+  name: "Time Survivor",
+  file: "Files/TimeSurvivor/index.html",
+  desc: "Survive waves of enemies and your own terrible time management."
+},
+{
+  date: "2026-05-18",
+  name: "Lootun",
+  file: "Files/Lootun/index.html",
+  desc: "Kick down doors. Steal shiny things. Repeat professionally."
+}
+
 ];
 
 
@@ -1448,15 +1482,16 @@ function sortGames(games, type) {
 
   return sorted;
 }
-
-// =======================
-// RENDER SYSTEM
-// =======================
 function renderGames(sortType = "newest") {
   const container = document.getElementById("gamesContainer");
   container.innerHTML = "";
 
-  let gameList = [...games];
+  const search = (searchBar?.value || "").toLowerCase();
+
+  let gameList = games.filter(game =>
+    (game.name || "").toLowerCase().includes(search) ||
+    (game.desc || "").toLowerCase().includes(search)
+  );
 
   // Rare hidden game 👁️
   if (Math.random() < 0.05) {
@@ -1469,37 +1504,34 @@ function renderGames(sortType = "newest") {
   }
 
   const sorted = sortGames(gameList, sortType);
-sorted.forEach(game => {
-  const card = document.createElement("div");
-  card.className = "game-card";
 
-  card.innerHTML = `
-    <h3>${game.name}</h3>
-    <p>${game.desc}</p>
+  sorted.forEach(game => {
+    const card = document.createElement("div");
+    card.className = "game-card";
 
-    <div class="launch-buttons">
-      <button class="launch-site">Play here</button>
-      <button class="launch-blank">about:blank</button>
-    </div>
-  `;
+    card.innerHTML = `
+      <h3>${game.name}</h3>
+      <p>${game.desc}</p>
 
-  const siteBtn = card.querySelector(".launch-site");
-  const blankBtn = card.querySelector(".launch-blank");
+      <div class="launch-buttons">
+        <button class="launch-site">Play here</button>
+        <button class="launch-blank">about:blank</button>
+      </div>
+    `;
 
-  siteBtn.onclick = (e) => {
-    e.stopPropagation();
-    openGame(game.file);
-  };
+    card.querySelector(".launch-site").onclick = (e) => {
+      e.stopPropagation();
+      openGame(game.file);
+    };
 
-  blankBtn.onclick = (e) => {
-    e.stopPropagation();
-    openGameBlank(game.file);
-  };
+    card.querySelector(".launch-blank").onclick = (e) => {
+      e.stopPropagation();
+      openGameBlank(game.file);
+    };
 
-  container.appendChild(card);
-});
+    container.appendChild(card);
+  });
 }
-
 // =======================
 // DROPDOWN HOOK
 // =======================

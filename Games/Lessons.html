@@ -22,14 +22,21 @@
    <a href="../Terminal/terminal.html">Focus</a>
   </div>
 </nav>
+<div class="top-controls">
+  <input
+    type="text"
+    id="searchBar"
+    placeholder="Search games..."
+  >
 
+  <select id="sortSelect">
+    <option value="newest">Newest</option>
+    <option value="az">A → Z</option>
+    <option value="za">Z → A</option>
+  </select>
+</div>
 <div class="games-container" id="gamesContainer"></div>
 
-<select id="sortSelect">
-  <option value="newest">Newest</option>
-  <option value="az">A → Z</option>
-  <option value="za">Z → A</option>
-</select>
 
 <div id="gameOverlay" class="game-overlay hidden">
   <div class="game-frame-container">
