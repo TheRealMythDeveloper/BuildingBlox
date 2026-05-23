@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<script>window.SimpleSpectrum = {}; window.AudioContext = (function () { var q = window.AudioContext || window.webkitAudioContext; return function () { var ac = new q(); window.SimpleSpectrum.ac = ac; window.SimpleSpectrum.a = ac.createAnalyser(); window.SimpleSpectrum.a.smoothingTimeConstant = 0; window.SimpleSpectrum.fa = new Uint8Array(window.SimpleSpectrum.a.frequencyBinCount); window.SimpleSpectrum.la = new Uint8Array(window.SimpleSpectrum.a.fftSize); window.SimpleSpectrum.a.connect(ac.destination); ac.actualDestination = ac.destination; Object.defineProperty(ac, 'destination', { value: window.SimpleSpectrum.a, writable: false }); return ac; } })();</script>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | DEADBEATS ENCORE</title>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    UnityLoader.instantiate("unityContainer", "Build/webgl.json");
+  </script>
+</head>
+
+<body style="text-align: center; margin: 0%;">
+  <div id="unityContainer" style="width: 1100px; height: 740px; margin: auto"></div>
+</body>
+

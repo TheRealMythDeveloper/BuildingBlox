@@ -1345,7 +1345,19 @@ const games = [
   name: "Lootun",
   file: "Files/Lootun/index.html",
   desc: "Kick down doors. Steal shiny things. Repeat professionally."
-}
+},
+{
+  date: "2026-05-23",
+  name: "Cult Inc.",
+  file: "Files/Cultinc/index.html",
+  desc: "Worship a big thing. Hope it won't eat you."
+},
+{
+  date: "2026-05-23",
+  name: "Deadbeat",
+  file: "Files/Deadbeats/index.html",
+  desc: "Dancing with death. Literally. Sounds fun!"
+},
 
 ];
 
