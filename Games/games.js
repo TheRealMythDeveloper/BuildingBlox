@@ -1358,6 +1358,44 @@ const games = [
   file: "Files/Deadbeats/index.html",
   desc: "Dancing with death. Literally. Sounds fun!"
 },
+{
+  date: "2026-05-25",
+  name: "Soulus",
+  file: "Files/Solous/index.html",
+  desc: "OOOh Left right up down, just send that email!"
+},
+{
+  date: "2026-05-25",
+  name: "Dynabeat",
+  file: "Files/Dynabeat/index.html",
+  desc: "Turn any song into a dance of DEATH"
+},
+{
+  date: "2026-05-25",
+  name: "Slot or Not",
+  file: "Files/Slotornot/index.html",
+  desc: "Gambling just got a little more dangerous.."
+},
+{
+  date: "2026-05-25",
+  name: "Ball Game",
+  file: "Files/BallGame/index.html",
+  desc: "The hunger games with bouncy balls"
+},
+{
+  date: "2026-05-25",
+  name: "Pegfinity",
+  file: "Files/Pegfinity/index.html",
+  desc: "Break your computer with wayyyy too many objects."
+},
+{
+  date: "2026-05-25",
+  name: "Waxweaver",
+  file: "Files/waxweaver/index.html",
+  desc: "Kind of like terarria i think."
+},
+
+
 
 ];
 
