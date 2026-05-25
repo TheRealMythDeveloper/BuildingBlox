@@ -1,0 +1,16 @@
+{
+"companyName": "THC",
+"productName": "Solous",
+"productVersion": "3.0",
+"dataUrl": "Solous v3 Web 06.05.2020.data.unityweb",
+"wasmCodeUrl": "Solous v3 Web 06.05.2020.wasm.code.unityweb",
+"wasmFrameworkUrl": "Solous v3 Web 06.05.2020.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#040505",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.3.7f1"
+}
