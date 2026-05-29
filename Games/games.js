@@ -4,6 +4,12 @@ searchBar.addEventListener("input", () => {
 });
 const games = [
   {
+    date: "2026-05-28",
+    name: "Webbed",
+    file: "Files/Webbed/index.html",
+    desc: "SUCH A CUTE LITTLE GAME. 10/!)",
+  },
+  {
     date: "2026-04-20",
     name: "Ragdoll Archers",
     file: "Files/ragdoll_archers.html",
