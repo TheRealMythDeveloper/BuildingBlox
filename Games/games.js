@@ -1401,6 +1401,12 @@ const games = [
     file: "Files/TerribleJob/index.html",
     desc: "its- its- a job application!",
   },
+  {
+    date: "2026-05-25",
+    name: "Solitude.exe",
+    file: "Files/Solitude.exe/index.html",
+    desc: "Dont worry",
+  },
 ];
 
 const echoMessages = [
