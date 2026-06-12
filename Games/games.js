@@ -3,6 +3,7 @@ searchBar.addEventListener("input", () => {
   renderGames();
 });
 const games = [
+  { date: "2026-06-12", name: "Plinko Panic", file: "Files/plinkoPanic/index.html", desc: "Dont panic, there are no takey-backies", }, { date: "2026-06-12", name: "Uncontained: SCP Card Game", file: "Files/Uncontained/index.html", desc: "Hey, so We may have had a breach....", }, { date: "2026-06-12", name: "Purgatory Trial", file: "Files/PurgatoryTrial/index.html", desc: "What did we do to end up here? Dunno..", }, { date: "2026-06-12", name: "Dominoir", file: "Files/Dominoir/index.html", desc: "Would you r like to plor some dominoir", }, { date: "2026-06-12", name: "Flubby Farm", file: "Files/FlubbyFarm/index.html", desc: "Flubbies? Its a card game, somehow.", }, { date: "2026-06-12", name: "Cardalaxy", file: "Files/Cardalaxy/index.html", desc: "Protect the galaxy!!", }, { date: "2026-06-12", name: "Collect Or DIcE", file: "Files/CollectOrDIcE/index.html", desc: "... Uh", },
   {
     date: "2026-05-28",
     name: "Webbed",
@@ -1406,6 +1407,24 @@ const games = [
     name: "Solitude.exe",
     file: "Files/Solitude.exe/index.html",
     desc: "Dont worry",
+  },
+   {
+    date: "2026-05-25",
+    name: "Solitude.exe",
+    file: "Files/Solitude.exe/index.html",
+    desc: "Dont worry",
+  },
+  {
+    date: "2026-06-12",
+    name: "Metroloop",
+    file: "Files/Metroloop/index.html",
+    desc: "the white powder + Subway = This game",
+  },
+   {
+    date: "2026-06-12",
+    name: "Solar Sandbox",
+    file: "Files/SolarSandbox/index.html",
+    desc: "SIMULATE THE WORLDSSS",
   },
 ];
 

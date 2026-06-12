@@ -1,0 +1,16 @@
+{
+"companyName": "Flubgang",
+"productName": "Flubby Farm",
+"productVersion": "0.1",
+"dataUrl": "19_10_11_WebGL.data.unityweb",
+"wasmCodeUrl": "19_10_11_WebGL.wasm.code.unityweb",
+"wasmFrameworkUrl": "19_10_11_WebGL.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.8f1"
+}
