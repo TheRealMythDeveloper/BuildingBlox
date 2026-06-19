@@ -275,7 +275,91 @@ p{
     }
 
 }
+#archiveSystem{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    opacity:0;
+    pointer-events:none;
+    transition:2s;
+    text-align:center;
+}
 
+#archiveSystem.show{
+    opacity:1;
+}
+
+#ring{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,0.1);
+    position:relative;
+    margin:auto;
+}
+
+#ring::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border-top:3px solid white;
+    animation:spin 3s linear infinite;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+#archivePercent{
+    font-size:2rem;
+    margin-top:-120px;
+}
+
+.freeze{
+    animation-play-state:paused !important;
+}
+
+.fadeAway{
+    opacity:0 !important;
+    transition:1.5s;
+}
+body.flicker {
+    animation: flicker 0.12s infinite;
+}
+
+@keyframes flicker {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(0.6); }
+    100% { filter: brightness(1.1); }
+}
+
+.blackout {
+    filter: brightness(0);
+}
+
+.stars.freeze {
+    animation-play-state: paused;
+    opacity: 0.2;
+}
+#systemLine {
+    margin-top: 15px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#archiveSystem.show #systemLine {
+    opacity: 1;
+}.shutdown {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: 1.5s;
+    filter: blur(2px) brightness(0.5);
+}
 </style>
 </head>
 
@@ -320,8 +404,24 @@ p{
             <div class="item">Interactive Systems</div>
             <div class="item">Visual Experiments</div>
             <div class="item">Hidden Details</div>
-            <div class="item">This Page</div>
+            <!-- ADD THIS INSIDE YOUR LIST -->
+<div class="item archive" id="archiveBtn">This Page</div>
 
+<!-- ADD THIS AFTER .container -->
+<div id="archiveSystem">
+    <div id="ring"></div>
+    <div id="archivePercent">0%</div>
+    <div id="archiveSystem">
+    <div id="ring"></div>
+    <div id="archivePercent">0%</div>
+
+    <div id="archiveText">Hold to continue.</div>
+
+    <!-- NEW: system output layer -->
+    <div id="systemLine">---</div>
+</div>
+    <div id="archiveText">Hold mouse to continue.</div>
+</div>
         </div>
 
     </div>
@@ -396,6 +496,123 @@ fades.forEach(fade => {
     observer.observe(fade);
 });
 
+
+
+
+const archiveBtn = document.getElementById("archiveBtn");
+const archiveSystem = document.getElementById("archiveSystem");
+const percent = document.getElementById("archivePercent");
+
+const page = document.querySelector(".container");
+
+let holding = false;
+let progress = 0;
+let loop = null;
+
+/* START */
+archiveBtn.addEventListener("mousedown", startHold);
+archiveBtn.addEventListener("touchstart", startHold);
+
+/* STOP */
+document.addEventListener("mouseup", stopHold);
+document.addEventListener("touchend", stopHold);
+
+function startHold() {
+    if (holding) return;
+    holding = true;
+
+    startArchive();
+
+    loop = setInterval(runSystem, 90);
+}
+
+function stopHold() {
+    holding = false;
+    clearInterval(loop);
+}
+
+/* ARCHIVE START SEQUENCE */
+function startArchive() {
+
+    status.textContent = "Signal interrupted.";
+
+    setTimeout(() => status.textContent = "...", 900);
+    setTimeout(() => status.textContent = "System detaching...", 1700);
+
+    setTimeout(() => {
+        page.classList.add("shutdown");
+    }, 2200);
+
+    document.querySelectorAll(".stars,.stars2,.stars3")
+        .forEach(s => s.classList.add("freeze"));
+
+    setTimeout(() => {
+        archiveSystem.classList.add("show");
+    }, 2800);
+}
+
+/* CORE LOOP */
+function runSystem() {
+
+    if (!holding) return;
+
+    progress++;
+    percent.textContent = progress + "%";
+
+    if (progress === 5) status.textContent = "Initializing...";
+    if (progress === 15) status.textContent = "Searching...";
+    if (progress === 25) status.textContent = "Restoring archive...";
+
+    if (progress === 30) flash("Who are you?");
+    if (progress === 40) corruptTitle();
+    if (progress === 50) blackoutPulse();
+    if (progress === 60) status.textContent = "Stop.";
+    if (progress === 70) shake();
+    if (progress === 85) flash("SYSTEM BREACH DETECTED");
+
+    if (progress >= 100) finish();
+}
+
+/* EFFECTS */
+function flash(msg) {
+    status.textContent = msg;
+    setTimeout(() => status.textContent = "Recovering...", 700);
+}
+
+function corruptTitle() {
+    document.querySelector("h1").textContent =
+        ["M̴YTHOS", "MYT̷HOS", "M̸YTHOS"][Math.floor(Math.random() * 3)];
+}
+
+function shake() {
+    const c = document.querySelector(".container");
+
+    c.style.transform = "translate(3px,0)";
+    setTimeout(() => c.style.transform = "translate(-3px,0)", 80);
+    setTimeout(() => c.style.transform = "translate(0,0)", 160);
+}
+
+function blackoutPulse() {
+    document.body.classList.add("blackout");
+
+    setTimeout(() => {
+        document.body.classList.remove("blackout");
+    }, 120);
+}
+
+function finish() {
+    clearInterval(loop);
+
+    status.textContent = "ARCHIVE COMPLETE";
+    percent.textContent = "100%";
+
+    document.body.classList.remove("flicker");
+    document.body.classList.add("blackout");
+
+    setTimeout(() => {
+        document.body.classList.remove("blackout");
+    }, 200);
+}
 </script>
 
 </body>
