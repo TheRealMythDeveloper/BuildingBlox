@@ -1410,9 +1410,9 @@ const games = [
   },
    {
     date: "2026-05-25",
-    name: "Solitude.exe",
-    file: "Files/Solitude.exe/index.html",
-    desc: "Dont worry",
+    name: "Too Deep To Stop",
+    file: "Files/TooDeep/index.html",
+    desc: "whhhHHHHEEEE",
   },
   {
     date: "2026-06-12",
