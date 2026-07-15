@@ -10,6 +10,43 @@ const games = [
     file: "Files/Webbed/index.html",
     desc: "SUCH A CUTE LITTLE GAME. 10/!)",
   },
+   {
+    date: "2026-07-15",
+    name: "20 Minutes Till Dawn",
+    file: "Files/20_minutes_till_dawn.html",
+    desc: "The real 20 minutes begin now",
+  },
+  {
+    date: "2026-07-15",
+    name: "Totally Accurate Battle Simulator (TABS)",
+    file: "Files/totally_accurate_battle_simulator.html",
+    desc: "Im totally in this game",
+  },
+   {
+    date: "2026-07-15",
+    name: "Rhythm Heaven!",
+    file: "Files/rhythm_heaven.html",
+    desc: "I LOVE THIS GAME!!",
+  },
+   {
+    date: "2026-07-15",
+    name: "Hollow Knight Silksong",
+    file: "Files/hollow_knight__silksong.html",
+    desc: "I actually dont know what this is. but its hollow knight so its cool.",
+  },
+     {
+    date: "2026-07-15",
+    name: "Plauge Inc v2",
+    file: "Files/plague_inc.html",
+    desc: "The jsn deliver files have been fixed. This one should work.",
+  },
+     {
+    date: "2026-07-15",
+    name: "Plauge Inc v2",
+    file: "Files/just_shapes___beats.html",
+    desc: "Rockin this game, dont worry, i'll add better descriptions later.",
+  },
+  
   {
     date: "2026-04-20",
     name: "Ragdoll Archers",

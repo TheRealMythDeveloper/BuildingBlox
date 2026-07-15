@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "emulators": "^8.3.9"
+    "emulators": "^8.3.9",
+    "node": "^26.5.0"
   }
 }
