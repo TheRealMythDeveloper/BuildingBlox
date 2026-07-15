@@ -13,7 +13,20 @@ const miniGames = [
     name: "GodotOS",
     desc: "...  Kindof just a text editor.",
     file: "GodotOS/index.html"
-  }
+  },
+  {
+    name: "Mythos Client Board",
+    desc: "Unblocked Minecraft and bloxd and more",
+    file: "https://therealmythdeveloper.github.io/MythosClientBoard/"
+  },
+   {
+    name: "Chrome Exploits",
+    desc: "Dancing ducky gave me inspiration for life",
+    file: "https://t3rm-exploit-dump.vercel.app/"
+    //https://github.com/T3M1N4L/exploit-dump/deployments/github-pages
+    //backuplink http://expl-dump.t3rm1n4l.dev/
+  },
+ 
 ];
 
 function renderMini() {
