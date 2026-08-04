@@ -42,8 +42,8 @@ const games = [
   },
      {
     date: "2026-07-15",
-    name: "Plauge Inc v2",
-    file: "Files/just_shapes___beats.html",
+    name: "JSAB",
+    file: "Games/Files/JSAB/index.html",
     desc: "Rockin this game, dont worry, i'll add better descriptions later.",
   },
   
