@@ -43,7 +43,7 @@ const games = [
      {
     date: "2026-07-15",
     name: "JSAB",
-    file: "Games/Files/JSAB/index.html",
+    file: "Files/JSAB/index.html",
     desc: "Rockin this game, dont worry, i'll add better descriptions later.",
   },
   
