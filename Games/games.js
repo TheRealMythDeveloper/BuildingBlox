@@ -1579,138 +1579,40 @@ const quickExitMessages = [
   "Error: Desync detected.",
   "Error: Rewriting...",
 ];
-// =======================
-// GAME LIST / VIRTUALIZATION
-// =======================
-
-const gamesContainer = document.getElementById("gamesContainer");
-const searchBar = document.getElementById("searchBar");
-const select = document.getElementById("sortSelect");
-
-// Adjust this to roughly match the height of your cards.
-// If your cards are around 200px tall, use 200.
-const CARD_HEIGHT = 200;
-
-// How many extra rows to render above/below the screen.
-// 2-4 is usually a good range.
-const BUFFER_ROWS = 3;
-
-let currentGames = [];
-let currentSort = "newest";
-let renderQueued = false;
-
 
 // =======================
 // SORTING SYSTEM
 // =======================
-
 function sortGames(games, type) {
-  const sorted = [...games];
+  let sorted = [...games];
 
   if (type === "newest") {
-    sorted.sort(
-      (a, b) =>
-        new Date(b.date || 0) -
-        new Date(a.date || 0)
-    );
+    sorted.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
   }
 
   if (type === "az") {
-    sorted.sort((a, b) =>
-      (a.name || "").localeCompare(b.name || "")
-    );
+    sorted.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   if (type === "za") {
-    sorted.sort((a, b) =>
-      (b.name || "").localeCompare(a.name || "")
-    );
+    sorted.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   return sorted;
 }
+function renderGames(sortType = "newest") {
+  const container = document.getElementById("gamesContainer");
+  container.innerHTML = "";
 
+  const search = (searchBar?.value || "").toLowerCase();
 
-// =======================
-// CREATE GAME CARD
-// =======================
+  let gameList = games.filter(
+    (game) =>
+      (game.name || "").toLowerCase().includes(search) ||
+      (game.desc || "").toLowerCase().includes(search)
+  );
 
-function createGameCard(game) {
-  const card = document.createElement("div");
-
-  card.className = "game-card";
-
-  card.innerHTML = `
-    <h3>${escapeHTML(game.name)}</h3>
-
-    <p>${escapeHTML(game.desc)}</p>
-
-    <div class="launch-buttons">
-      <button class="launch-site">
-        Play here
-      </button>
-
-      <button class="launch-blank">
-        about:blank
-      </button>
-    </div>
-  `;
-
-  // Play inside website
-  card.querySelector(".launch-site").addEventListener("click", (e) => {
-    e.stopPropagation();
-    openGame(game.file);
-  });
-
-  // Play in about:blank
-  card.querySelector(".launch-blank").addEventListener("click", (e) => {
-    e.stopPropagation();
-    openGameBlank(game.file);
-  });
-
-  return card;
-}
-
-
-// =======================
-// ESCAPE HTML
-// =======================
-// Prevents game names/descriptions from accidentally
-// being interpreted as HTML.
-
-function escapeHTML(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-
-// =======================
-// GET FILTERED GAMES
-// =======================
-
-function getGameList() {
-  const search = (searchBar?.value || "")
-    .trim()
-    .toLowerCase();
-
-  let gameList = games.filter((game) => {
-    const name = (game.name || "").toLowerCase();
-    const desc = (game.desc || "").toLowerCase();
-
-    return (
-      name.includes(search) ||
-      desc.includes(search)
-    );
-  });
-
-  // =======================
-  // RARE HIDDEN GAME 👁️
-  // =======================
-
+  // Rare hidden game 👁️
   if (Math.random() < 0.05) {
     gameList.push({
       date: "????-??-??",
@@ -1720,266 +1622,86 @@ function getGameList() {
     });
   }
 
-  return sortGames(gameList, currentSort);
-}
+  const sorted = sortGames(gameList, sortType);
 
+  sorted.forEach((game) => {
+    const card = document.createElement("div");
+    card.className = "game-card";
 
-// =======================
-// FIND GRID COLUMNS
-// =======================
+    card.innerHTML = `
+      <h3>${game.name}</h3>
+      <p>${game.desc}</p>
 
-function getColumnCount() {
-  const style = window.getComputedStyle(gamesContainer);
+      <div class="launch-buttons">
+        <button class="launch-site">Play here</button>
+        <button class="launch-blank">about:blank</button>
+      </div>
+    `;
 
-  const columns = style
-    .gridTemplateColumns
-    .split(" ")
-    .filter(Boolean);
+    card.querySelector(".launch-site").onclick = (e) => {
+      e.stopPropagation();
+      openGame(game.file);
+    };
 
-  if (columns.length > 0) {
-    return columns.length;
-  }
+    card.querySelector(".launch-blank").onclick = (e) => {
+      e.stopPropagation();
+      openGameBlank(game.file);
+    };
 
-  return 1;
-}
-
-
-// =======================
-// VIRTUAL RENDER
-// =======================
-
-function renderVisibleGames() {
-  if (!gamesContainer || currentGames.length === 0) {
-    gamesContainer.innerHTML = "";
-
-    if (gamesContainer) {
-      gamesContainer.style.height = "0px";
-    }
-
-    return;
-  }
-
-  const columns = Math.max(1, getColumnCount());
-
-  const totalRows = Math.ceil(
-    currentGames.length / columns
-  );
-
-  // Total height of the virtual list.
-  // The browser thinks all cards exist,
-  // but we only create the ones near the viewport.
-  gamesContainer.style.height =
-    `${totalRows * CARD_HEIGHT}px`;
-
-  const containerTop =
-    gamesContainer.getBoundingClientRect().top +
-    window.scrollY;
-
-  const scrollTop = window.scrollY;
-
-  const viewportHeight = window.innerHeight;
-
-  // Determine visible rows
-  let firstRow = Math.floor(
-    (scrollTop - containerTop) / CARD_HEIGHT
-  );
-
-  let lastRow = Math.ceil(
-    (
-      scrollTop -
-      containerTop +
-      viewportHeight
-    ) / CARD_HEIGHT
-  );
-
-  // Add buffer
-  firstRow -= BUFFER_ROWS;
-  lastRow += BUFFER_ROWS;
-
-  firstRow = Math.max(0, firstRow);
-  lastRow = Math.min(totalRows, lastRow);
-
-  const firstIndex = firstRow * columns;
-  const lastIndex = Math.min(
-    currentGames.length,
-    lastRow * columns
-  );
-
-  // Remove currently rendered cards
-  gamesContainer.innerHTML = "";
-
-  const fragment =
-    document.createDocumentFragment();
-
-  // Create ONLY cards near the viewport
-  for (
-    let i = firstIndex;
-    i < lastIndex;
-    i++
-  ) {
-    const game = currentGames[i];
-
-    const card = createGameCard(game);
-
-    const row = Math.floor(i / columns);
-    const column = i % columns;
-
-    card.style.position = "absolute";
-
-    card.style.top =
-      `${row * CARD_HEIGHT}px`;
-
-    card.style.left =
-      `${(column * 100) / columns}%`;
-
-    card.style.width =
-      `${100 / columns}%`;
-
-    card.style.boxSizing = "border-box";
-
-    fragment.appendChild(card);
-  }
-
-  gamesContainer.appendChild(fragment);
-}
-
-
-// =======================
-// QUEUED SCROLL RENDER
-// =======================
-
-function requestVirtualRender() {
-  if (renderQueued) return;
-
-  renderQueued = true;
-
-  requestAnimationFrame(() => {
-    renderVisibleGames();
-
-    renderQueued = false;
+    container.appendChild(card);
   });
 }
-
-
 // =======================
-// MAIN RENDER
+// DROPDOWN HOOK
 // =======================
+const select = document.getElementById("sortSelect");
 
-function renderGames(sortType = currentSort) {
-  currentSort = sortType;
-
-  currentGames = getGameList();
-
-  // Start near the top when changing
-  // search/sorting.
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
-
-  renderVisibleGames();
-}
-
-
-// =======================
-// SEARCH
-// =======================
-
-if (searchBar) {
-  searchBar.addEventListener("input", () => {
-    renderGames(currentSort);
-  });
-}
-
-
-// =======================
-// SORT DROPDOWN
-// =======================
-
-if (select) {
-  select.addEventListener("change", () => {
-    renderGames(select.value);
-  });
-}
-
-
-// =======================
-// SCROLL
-// =======================
-
-window.addEventListener(
-  "scroll",
-  requestVirtualRender,
-  { passive: true }
-);
-
-
-// =======================
-// WINDOW RESIZE
-// =======================
-
-window.addEventListener(
-  "resize",
-  requestVirtualRender
-);
-
+select.addEventListener("change", () => {
+  renderGames(select.value);
+});
 
 // =======================
 // INITIAL LOAD
 // =======================
-
 renderGames("newest");
 
-
-// ======================================================
+// =======================
 // GAME OPEN / CLOSE
-// ======================================================
-
+// =======================
 let gameStartTime = 0;
 
-
-// =======================
 // PLAY INSIDE WEBSITE
-// =======================
-
 function openGame(path) {
-  const overlay =
-    document.getElementById("gameOverlay");
-
-  const frame =
-    document.getElementById("gameFrame");
+  const overlay = document.getElementById("gameOverlay");
+  const frame = document.getElementById("gameFrame");
 
   frame.src = path;
-
   overlay.classList.remove("hidden");
 
   gameStartTime = Date.now();
 }
 
+// CLOSE WEBSITE PLAYER
+function closeGame() {
+  const overlay = document.getElementById("gameOverlay");
+  const frame = document.getElementById("gameFrame");
 
-// =======================
+  frame.src = "";
+  overlay.classList.add("hidden");
+}
+
 // OPEN IN ABOUT:BLANK
-// =======================
-
 function openGameBlank(path) {
-  const win =
-    window.open("about:blank", "_blank");
-
-  if (!win) {
-    alert("Your browser blocked the popup.");
-    return;
-  }
+  const win = window.open("about:blank", "_blank");
 
   win.document.write(`
     <!DOCTYPE html>
     <html>
-
     <head>
       <title>Google Docs</title>
 
       <style>
-        html,
-        body {
+        html, body {
           margin: 0;
           width: 100%;
           height: 100%;
@@ -1996,24 +1718,15 @@ function openGameBlank(path) {
     </head>
 
     <body>
-      <iframe
-        src="${escapeHTML(path)}"
-        allowfullscreen>
-      </iframe>
+      <iframe src="${path}" allowfullscreen></iframe>
     </body>
-
     </html>
   `);
 
   // Google Docs favicon
-  const link =
-    win.document.createElement("link");
-
+  const link = win.document.createElement("link");
   link.rel = "icon";
-
-  link.href =
-    "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
-
+  link.href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
   win.document.head.appendChild(link);
 
   win.document.close();
@@ -2021,35 +1734,16 @@ function openGameBlank(path) {
   gameStartTime = Date.now();
 }
 
-
-// =======================
-// CLOSE GAME
-// =======================
-
 function closeGame() {
-  const overlay =
-    document.getElementById("gameOverlay");
-
-  const frame =
-    document.getElementById("gameFrame");
+  const overlay = document.getElementById("gameOverlay");
+  const frame = document.getElementById("gameFrame");
 
   overlay.classList.add("hidden");
-
-  // Important:
-  // Clear the iframe immediately so the game
-  // stops using CPU/RAM after closing it.
   frame.src = "";
 
-  const timeSpent =
-    Date.now() - gameStartTime;
-
-
-  // =======================
-  // VERY QUICK EXIT
-  // =======================
+  const timeSpent = Date.now() - gameStartTime;
 
   if (timeSpent < 2000) {
-
     showEchoMessage([
       "Err̴or: S̶tate unsta̸ble.",
       "Error: Rea̴li̶ty mismatch.",
@@ -2103,39 +1797,19 @@ function closeGame() {
       "You ended that instantly.",
       "That was… efficient.",
     ]);
-
-  }
-
-  // =======================
-  // QUICK EXIT
-  // =======================
-
-  else if (timeSpent < 5000) {
-
+  } else if (timeSpent < 5000) {
     showEchoMessage(quickExitMessages);
-
-  }
-
-  // =======================
-  // NORMAL PLAY
-  // =======================
-
-  else {
-
+  } else {
     showEchoMessage();
-
   }
 }
-
-
 // =======================
 // GAME LAUNCH OPTIONS
 // =======================
 
 function showLaunchOptions(path) {
   const choice = confirm(
-    "Press OK to launch in about:blank\n" +
-    "Press Cancel to launch inside website"
+    "Press OK to launch in about:blank\nPress Cancel to launch inside website"
   );
 
   if (choice) {
@@ -2144,23 +1818,14 @@ function showLaunchOptions(path) {
     openGame(path);
   }
 }
-
-
-// ======================================================
+// =======================
 // ECHO SYSTEM
-// ======================================================
-
+// =======================
 function showEchoMessage(customPool = null) {
-  const el =
-    document.getElementById("echoMessage");
+  const el = document.getElementById("echoMessage");
 
-  if (!el) return;
-
-  const pool =
-    customPool || echoMessages;
-
-  const text =
-    pool[Math.floor(Math.random() * pool.length)];
+  const pool = customPool || echoMessages;
+  const text = pool[Math.floor(Math.random() * pool.length)];
 
   el.textContent = "";
   el.style.opacity = 1;
@@ -2169,45 +1834,23 @@ function showEchoMessage(customPool = null) {
 
   function type() {
     if (i < text.length) {
-
-      el.textContent +=
-        text.charAt(i);
-
+      el.textContent += text.charAt(i);
       i++;
-
       setTimeout(type, 35);
-
     } else {
-
       setTimeout(() => {
         el.style.opacity = 0;
       }, 2000);
-
     }
   }
 
   type();
 }
+const cursor = document.getElementById("cursor");
 
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
 
-// ======================================================
-// CUSTOM CURSOR
-// ======================================================
-
-const cursor =
-  document.getElementById("cursor");
-
-if (cursor) {
-  document.addEventListener(
-    "mousemove",
-    (e) => {
-
-      cursor.style.left =
-        e.clientX + "px";
-
-      cursor.style.top =
-        e.clientY + "px";
-
-    }
-  );
 }
