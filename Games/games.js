@@ -1,7 +1,4 @@
-const searchBar = document.getElementById("searchBar");
-searchBar.addEventListener("input", () => {
-  renderGames();
-});
+
 const games = [
   { date: "2026-06-12", name: "Plinko Panic", file: "Files/plinkoPanic/index.html", desc: "Dont panic, there are no takey-backies", }, { date: "2026-06-12", name: "Uncontained: SCP Card Game", file: "Files/Uncontained/index.html", desc: "Hey, so We may have had a breach....", }, { date: "2026-06-12", name: "Purgatory Trial", file: "Files/PurgatoryTrial/index.html", desc: "What did we do to end up here? Dunno..", }, { date: "2026-06-12", name: "Dominoir", file: "Files/Dominoir/index.html", desc: "Would you r like to plor some dominoir", }, { date: "2026-06-12", name: "Flubby Farm", file: "Files/FlubbyFarm/index.html", desc: "Flubbies? Its a card game, somehow.", }, { date: "2026-06-12", name: "Cardalaxy", file: "Files/Cardalaxy/index.html", desc: "Protect the galaxy!!", }, { date: "2026-06-12", name: "Collect Or DIcE", file: "Files/CollectOrDIcE/index.html", desc: "... Uh", },
   {
@@ -1579,12 +1576,24 @@ const quickExitMessages = [
   "Error: Desync detected.",
   "Error: Rewriting...",
 ];
+
+
 // =======================
-// SORTING SYSTEM
+// SORTING + LAZY LOADING
 // =======================
 
-function sortGames(games, type) {
-  const sorted = [...games];
+const PAGE_SIZE = 24;
+
+let currentGames = [];
+let renderedCount = 0;
+
+const container = document.getElementById("gamesContainer");
+
+const loadMoreSentinel = document.createElement("div");
+loadMoreSentinel.id = "loadMoreSentinel";
+
+function sortGames(gameList, type) {
+  const sorted = [...gameList];
 
   if (type === "newest") {
     sorted.sort((a, b) => {
@@ -1609,27 +1618,91 @@ function sortGames(games, type) {
 
 
 // =======================
-// RENDER GAMES
+// CREATE CARD
+// =======================
+
+function createGameCard(game) {
+  const card = document.createElement("div");
+  card.className = "game-card";
+
+  card.innerHTML = `
+    <h3>${game.name || "Unnamed Game"}</h3>
+    <p>${game.desc || "No description available."}</p>
+
+    <div class="launch-buttons">
+      <button class="launch-site">Play here</button>
+      <button class="launch-blank">about:blank</button>
+    </div>
+  `;
+
+  const playButton = card.querySelector(".launch-site");
+  const blankButton = card.querySelector(".launch-blank");
+
+  playButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openGame(game.file);
+  });
+
+  blankButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openGameBlank(game.file);
+  });
+
+  return card;
+}
+
+
+// =======================
+// LOAD NEXT BATCH
+// =======================
+
+function loadMoreGames() {
+  if (!container) return;
+
+  const nextGames = currentGames.slice(
+    renderedCount,
+    renderedCount + PAGE_SIZE
+  );
+
+  nextGames.forEach((game) => {
+    container.appendChild(createGameCard(game));
+  });
+
+  renderedCount += nextGames.length;
+
+  // Move sentinel to the bottom
+  container.appendChild(loadMoreSentinel);
+
+  if (renderedCount >= currentGames.length) {
+    loadMoreSentinel.style.display = "none";
+  } else {
+    loadMoreSentinel.style.display = "block";
+  }
+}
+
+
+// =======================
+// RENDER / RESET
 // =======================
 
 function renderGames(sortType = "newest") {
-  const container = document.getElementById("gamesContainer");
-
-  // Prevent the entire script from crashing if the container is missing
   if (!container) {
-    console.error("ERROR: #gamesContainer was not found in the HTML.");
+    console.error("ERROR: #gamesContainer was not found.");
     return;
   }
 
-  container.innerHTML = "";
-
-  const search = (searchBar?.value || "").toLowerCase().trim();
+  const search = (searchBar?.value || "")
+    .toLowerCase()
+    .trim();
 
   let gameList = games.filter((game) => {
     const name = (game.name || "").toLowerCase();
     const desc = (game.desc || "").toLowerCase();
 
-    return name.includes(search) || desc.includes(search);
+    return (
+      name.includes(search) ||
+      desc.includes(search)
+    );
   });
 
   // Rare hidden game
@@ -1638,283 +1711,46 @@ function renderGames(sortType = "newest") {
       date: "9999-99-99",
       name: "???",
       file: "games/hidden.html",
-      desc: "You weren’t supposed to find this.",
+      desc: "You weren’t supposed to find this."
     });
   }
 
-  const sorted = sortGames(gameList, sortType);
+  currentGames = sortGames(gameList, sortType);
 
-  if (sorted.length === 0) {
+  renderedCount = 0;
+
+  container.innerHTML = "";
+
+  if (currentGames.length === 0) {
     container.innerHTML = `
       <div class="no-games">
         <h3>No games found.</h3>
         <p>Try searching for something else.</p>
       </div>
     `;
+
     return;
   }
 
-  sorted.forEach((game) => {
-    const card = document.createElement("div");
-    card.className = "game-card";
-
-    card.innerHTML = `
-      <h3>${game.name || "Unnamed Game"}</h3>
-      <p>${game.desc || "No description available."}</p>
-
-      <div class="launch-buttons">
-        <button class="launch-site">Play here</button>
-        <button class="launch-blank">about:blank</button>
-      </div>
-    `;
-
-    const playButton = card.querySelector(".launch-site");
-    const blankButton = card.querySelector(".launch-blank");
-
-    playButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openGame(game.file);
-    });
-
-    blankButton.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openGameBlank(game.file);
-    });
-
-    container.appendChild(card);
-  });
+  loadMoreGames();
 }
 
 
 // =======================
-// SEARCH BAR
+// INFINITE SCROLL
 // =======================
 
-const searchBar = document.getElementById("searchBar");
-
-if (searchBar) {
-  searchBar.addEventListener("input", () => {
-    const select = document.getElementById("sortSelect");
-    renderGames(select ? select.value : "newest");
-  });
-}
-
-
-// =======================
-// SORT DROPDOWN
-// =======================
-
-const select = document.getElementById("sortSelect");
-
-if (select) {
-  select.addEventListener("change", () => {
-    renderGames(select.value);
-  });
-}
-
-
-// =======================
-// INITIAL LOAD
-// =======================
-
-renderGames("newest");
-
-
-// =======================
-// GAME OPEN / CLOSE
-// =======================
-
-let gameStartTime = 0;
-
-
-// PLAY INSIDE WEBSITE
-
-function openGame(path) {
-  const overlay = document.getElementById("gameOverlay");
-  const frame = document.getElementById("gameFrame");
-
-  if (!overlay || !frame) {
-    console.error("ERROR: #gameOverlay or #gameFrame was not found.");
-    return;
-  }
-
-  frame.src = path;
-  overlay.classList.remove("hidden");
-
-  gameStartTime = Date.now();
-}
-
-
-// CLOSE WEBSITE PLAYER
-
-function closeGame() {
-  const overlay = document.getElementById("gameOverlay");
-  const frame = document.getElementById("gameFrame");
-
-  if (!overlay || !frame) {
-    return;
-  }
-
-  overlay.classList.add("hidden");
-  frame.src = "";
-
-  const timeSpent = Date.now() - gameStartTime;
-
-  if (timeSpent < 2000) {
-    showEchoMessage([
-      "Err̴or: S̶tate unsta̸ble.",
-      "Error: Rea̴li̶ty mismatch.",
-      "E̷r̵r̶o̴r̷: Outc̸ome shiftin̵g.",
-      "Error: Syst— ...resume.",
-      "Error: That wasn’t there before.",
-      "Err— wait.",
-      "Error: Something moved.",
-      "Error: That path changed.",
-      "Error: Desync detected.",
-      "Error: Rewriting...",
-      "Nope.",
-      "That was immediate.",
-      "You didn’t even blink.",
-      "Instant rejection.",
-      "You opened it just to leave?",
-      "That lasted… nothing.",
-      "Denied.",
-      "You said no instantly.",
-      "Immediate exit detected.",
-      "That didn’t pass the vibe check.",
-      "You dipped immediately.",
-    ]);
-  } else if (timeSpent < 5000) {
-    showEchoMessage(quickExitMessages);
-  } else {
-    showEchoMessage();
-  }
-}
-
-
-// =======================
-// OPEN IN ABOUT:BLANK
-// =======================
-
-function openGameBlank(path) {
-  const win = window.open("about:blank", "_blank");
-
-  if (!win) {
-    alert("Your browser blocked the new tab. Please allow pop-ups for this site.");
-    return;
-  }
-
-  win.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Google Docs</title>
-
-      <style>
-        html, body {
-          margin: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          background: black;
-        }
-
-        iframe {
-          width: 100vw;
-          height: 100vh;
-          border: none;
-        }
-      </style>
-    </head>
-
-    <body>
-      <iframe
-        src="${path}"
-        allowfullscreen
-      ></iframe>
-    </body>
-    </html>
-  `);
-
-  const link = win.document.createElement("link");
-  link.rel = "icon";
-  link.href =
-    "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
-
-  win.document.head.appendChild(link);
-
-  win.document.close();
-
-  gameStartTime = Date.now();
-}
-
-
-// =======================
-// OPTIONAL LAUNCH OPTIONS
-// =======================
-
-function showLaunchOptions(path) {
-  const choice = confirm(
-    "Press OK to launch in about:blank\nPress Cancel to launch inside website"
-  );
-
-  if (choice) {
-    openGameBlank(path);
-  } else {
-    openGame(path);
-  }
-}
-
-
-// =======================
-// ECHO SYSTEM
-// =======================
-
-function showEchoMessage(customPool = null) {
-  const el = document.getElementById("echoMessage");
-
-  if (!el) {
-    return;
-  }
-
-  const pool = customPool || echoMessages;
-
-  if (!pool || pool.length === 0) {
-    return;
-  }
-
-  const text = pool[Math.floor(Math.random() * pool.length)];
-
-  el.textContent = "";
-  el.style.opacity = 1;
-
-  let i = 0;
-
-  function type() {
-    if (i < text.length) {
-      el.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, 35);
-    } else {
-      setTimeout(() => {
-        el.style.opacity = 0;
-      }, 2000);
+const observer = new IntersectionObserver(
+  (entries) => {
+    if (entries[0].isIntersecting) {
+      loadMoreGames();
     }
+  },
+  {
+    root: null,
+    rootMargin: "500px",
+    threshold: 0
   }
+);
 
-  type();
-}
-
-
-// =======================
-// CUSTOM CURSOR
-// =======================
-
-const cursor = document.getElementById("cursor");
-
-if (cursor) {
-  document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-  });
-}
+observer.observe(loadMoreSentinel);
