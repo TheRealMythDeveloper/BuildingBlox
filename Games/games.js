@@ -1579,43 +1579,63 @@ const quickExitMessages = [
   "Error: Desync detected.",
   "Error: Rewriting...",
 ];
-
 // =======================
 // SORTING SYSTEM
 // =======================
+
 function sortGames(games, type) {
-  let sorted = [...games];
+  const sorted = [...games];
 
   if (type === "newest") {
-    sorted.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+    sorted.sort((a, b) => {
+      return new Date(b.date || 0) - new Date(a.date || 0);
+    });
   }
 
   if (type === "az") {
-    sorted.sort((a, b) => a.name.localeCompare(b.name));
+    sorted.sort((a, b) =>
+      (a.name || "").localeCompare(b.name || "")
+    );
   }
 
   if (type === "za") {
-    sorted.sort((a, b) => b.name.localeCompare(a.name));
+    sorted.sort((a, b) =>
+      (b.name || "").localeCompare(a.name || "")
+    );
   }
 
   return sorted;
 }
+
+
+// =======================
+// RENDER GAMES
+// =======================
+
 function renderGames(sortType = "newest") {
   const container = document.getElementById("gamesContainer");
+
+  // Prevent the entire script from crashing if the container is missing
+  if (!container) {
+    console.error("ERROR: #gamesContainer was not found in the HTML.");
+    return;
+  }
+
   container.innerHTML = "";
 
-  const search = (searchBar?.value || "").toLowerCase();
+  const search = (searchBar?.value || "").toLowerCase().trim();
 
-  let gameList = games.filter(
-    (game) =>
-      (game.name || "").toLowerCase().includes(search) ||
-      (game.desc || "").toLowerCase().includes(search)
-  );
+  let gameList = games.filter((game) => {
+    const name = (game.name || "").toLowerCase();
+    const desc = (game.desc || "").toLowerCase();
 
-  // Rare hidden game 👁️
+    return name.includes(search) || desc.includes(search);
+  });
+
+  // Rare hidden game
   if (Math.random() < 0.05) {
     gameList.push({
-      date: "????-??-??",
+      date: "9999-99-99",
       name: "???",
       file: "games/hidden.html",
       desc: "You weren’t supposed to find this.",
@@ -1624,13 +1644,23 @@ function renderGames(sortType = "newest") {
 
   const sorted = sortGames(gameList, sortType);
 
+  if (sorted.length === 0) {
+    container.innerHTML = `
+      <div class="no-games">
+        <h3>No games found.</h3>
+        <p>Try searching for something else.</p>
+      </div>
+    `;
+    return;
+  }
+
   sorted.forEach((game) => {
     const card = document.createElement("div");
     card.className = "game-card";
 
     card.innerHTML = `
-      <h3>${game.name}</h3>
-      <p>${game.desc}</p>
+      <h3>${game.name || "Unnamed Game"}</h3>
+      <p>${game.desc || "No description available."}</p>
 
       <div class="launch-buttons">
         <button class="launch-site">Play here</button>
@@ -1638,42 +1668,75 @@ function renderGames(sortType = "newest") {
       </div>
     `;
 
-    card.querySelector(".launch-site").onclick = (e) => {
+    const playButton = card.querySelector(".launch-site");
+    const blankButton = card.querySelector(".launch-blank");
+
+    playButton.addEventListener("click", (e) => {
       e.stopPropagation();
       openGame(game.file);
-    };
+    });
 
-    card.querySelector(".launch-blank").onclick = (e) => {
+    blankButton.addEventListener("click", (e) => {
       e.stopPropagation();
       openGameBlank(game.file);
-    };
+    });
 
     container.appendChild(card);
   });
 }
+
+
 // =======================
-// DROPDOWN HOOK
+// SEARCH BAR
 // =======================
+
+const searchBar = document.getElementById("searchBar");
+
+if (searchBar) {
+  searchBar.addEventListener("input", () => {
+    const select = document.getElementById("sortSelect");
+    renderGames(select ? select.value : "newest");
+  });
+}
+
+
+// =======================
+// SORT DROPDOWN
+// =======================
+
 const select = document.getElementById("sortSelect");
 
-select.addEventListener("change", () => {
-  renderGames(select.value);
-});
+if (select) {
+  select.addEventListener("change", () => {
+    renderGames(select.value);
+  });
+}
+
 
 // =======================
 // INITIAL LOAD
 // =======================
+
 renderGames("newest");
+
 
 // =======================
 // GAME OPEN / CLOSE
 // =======================
+
 let gameStartTime = 0;
 
+
 // PLAY INSIDE WEBSITE
+
 function openGame(path) {
   const overlay = document.getElementById("gameOverlay");
   const frame = document.getElementById("gameFrame");
+
+  if (!overlay || !frame) {
+    console.error("ERROR: #gameOverlay or #gameFrame was not found.");
+    return;
+  }
 
   frame.src = path;
   overlay.classList.remove("hidden");
@@ -1681,18 +1744,65 @@ function openGame(path) {
   gameStartTime = Date.now();
 }
 
+
 // CLOSE WEBSITE PLAYER
+
 function closeGame() {
   const overlay = document.getElementById("gameOverlay");
   const frame = document.getElementById("gameFrame");
 
-  frame.src = "";
+  if (!overlay || !frame) {
+    return;
+  }
+
   overlay.classList.add("hidden");
+  frame.src = "";
+
+  const timeSpent = Date.now() - gameStartTime;
+
+  if (timeSpent < 2000) {
+    showEchoMessage([
+      "Err̴or: S̶tate unsta̸ble.",
+      "Error: Rea̴li̶ty mismatch.",
+      "E̷r̵r̶o̴r̷: Outc̸ome shiftin̵g.",
+      "Error: Syst— ...resume.",
+      "Error: That wasn’t there before.",
+      "Err— wait.",
+      "Error: Something moved.",
+      "Error: That path changed.",
+      "Error: Desync detected.",
+      "Error: Rewriting...",
+      "Nope.",
+      "That was immediate.",
+      "You didn’t even blink.",
+      "Instant rejection.",
+      "You opened it just to leave?",
+      "That lasted… nothing.",
+      "Denied.",
+      "You said no instantly.",
+      "Immediate exit detected.",
+      "That didn’t pass the vibe check.",
+      "You dipped immediately.",
+    ]);
+  } else if (timeSpent < 5000) {
+    showEchoMessage(quickExitMessages);
+  } else {
+    showEchoMessage();
+  }
 }
 
+
+// =======================
 // OPEN IN ABOUT:BLANK
+// =======================
+
 function openGameBlank(path) {
   const win = window.open("about:blank", "_blank");
+
+  if (!win) {
+    alert("Your browser blocked the new tab. Please allow pop-ups for this site.");
+    return;
+  }
 
   win.document.write(`
     <!DOCTYPE html>
@@ -1718,15 +1828,19 @@ function openGameBlank(path) {
     </head>
 
     <body>
-      <iframe src="${path}" allowfullscreen></iframe>
+      <iframe
+        src="${path}"
+        allowfullscreen
+      ></iframe>
     </body>
     </html>
   `);
 
-  // Google Docs favicon
   const link = win.document.createElement("link");
   link.rel = "icon";
-  link.href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
+  link.href =
+    "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
+
   win.document.head.appendChild(link);
 
   win.document.close();
@@ -1734,77 +1848,9 @@ function openGameBlank(path) {
   gameStartTime = Date.now();
 }
 
-function closeGame() {
-  const overlay = document.getElementById("gameOverlay");
-  const frame = document.getElementById("gameFrame");
 
-  overlay.classList.add("hidden");
-  frame.src = "";
-
-  const timeSpent = Date.now() - gameStartTime;
-
-  if (timeSpent < 2000) {
-    showEchoMessage([
-      "Err̴or: S̶tate unsta̸ble.",
-      "Error: Rea̴li̶ty mismatch.",
-      "E̷r̵r̶o̴r̷: Outc̸ome shiftin̵g.",
-      "Error: Syst— ...resume.",
-      "Error: That wasn’t there before.",
-      "Err— wait.",
-      "Error: Something moved.",
-      "Error: That path changed.",
-      "Error: Desync detected.",
-      "Error: Rewriting...",
-
-      "Nope.",
-      "That was immediate.",
-      "You didn’t even blink.",
-      "Instant rejection.",
-      "You opened it just to leave?",
-      "That lasted… nothing.",
-      "Not even a second thought.",
-      "Denied.",
-      "You said no instantly.",
-      "That was a reflex.",
-      "You backed out before it began.",
-      "Immediate exit detected.",
-      "You weren’t feeling that at all.",
-      "That was over before it started.",
-      "Speedrun: avoidance.",
-      "You hovered and left.",
-      "That didn’t stand a chance.",
-      "You gave it zero time.",
-      "You saw enough instantly.",
-      "That was decisive.",
-      "No hesitation. Just no.",
-      "You closed that with confidence.",
-      "You trusted your instincts. Brutal.",
-      "That didn’t pass the vibe check.",
-      "You didn’t even try to pretend.",
-      "You were gone instantly.",
-      "That was rejected on sight.",
-      "You dipped immediately.",
-      "You made that decision fast.",
-      "That wasn’t even considered.",
-      "You skipped the experience entirely.",
-      "That was almost impressive.",
-      "You gave it absolutely nothing.",
-      "You left before it could begin.",
-      "That was a hard no.",
-      "You didn’t stick around for answers.",
-      "You already knew.",
-      "That didn’t deserve your time, apparently.",
-      "You ended that instantly.",
-      "That was… efficient.",
-    ]);
-  } else if (timeSpent < 5000) {
-    showEchoMessage(quickExitMessages);
-  } else {
-    showEchoMessage();
-  }
-}
 // =======================
-// GAME LAUNCH OPTIONS
+// OPTIONAL LAUNCH OPTIONS
 // =======================
 
 function showLaunchOptions(path) {
@@ -1818,13 +1864,25 @@ function showLaunchOptions(path) {
     openGame(path);
   }
 }
+
+
 // =======================
 // ECHO SYSTEM
 // =======================
+
 function showEchoMessage(customPool = null) {
   const el = document.getElementById("echoMessage");
 
+  if (!el) {
+    return;
+  }
+
   const pool = customPool || echoMessages;
+
+  if (!pool || pool.length === 0) {
+    return;
+  }
+
   const text = pool[Math.floor(Math.random() * pool.length)];
 
   el.textContent = "";
@@ -1846,11 +1904,17 @@ function showEchoMessage(customPool = null) {
 
   type();
 }
+
+
+// =======================
+// CUSTOM CURSOR
+// =======================
+
 const cursor = document.getElementById("cursor");
 
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
-
+if (cursor) {
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
 }
