@@ -1673,18 +1673,50 @@ renderGames("newest");
 // =======================
 // GAME OPEN / CLOSE
 // =======================
-let gameStartTime = 0;
+// OPEN IN ABOUT:BLANK
+function openGameBlank(path) {
+  const win = window.open("about:blank", "_blank");
 
-// PLAY INSIDE WEBSITE
-function openGame(path) {
-  const overlay = document.getElementById("gameOverlay");
-  const frame = document.getElementById("gameFrame");
+  win.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Google Docs</title>
 
-  frame.src = path;
-  overlay.classList.remove("hidden");
+      <style>
+        html, body {
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background: black;
+        }
+
+        iframe {
+          width: 100vw;
+          height: 100vh;
+          border: none;
+        }
+      </style>
+    </head>
+
+    <body>
+      <iframe src="${path}" allowfullscreen></iframe>
+    </body>
+    </html>
+  `);
+
+  // Google Docs favicon
+  const link = win.document.createElement("link");
+  link.rel = "icon";
+  link.href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
+  win.document.head.appendChild(link);
+
+  win.document.close();
 
   gameStartTime = Date.now();
 }
+
 
 // CLOSE WEBSITE PLAYER
 function closeGame() {
