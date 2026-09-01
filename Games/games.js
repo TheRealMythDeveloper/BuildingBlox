@@ -9,7 +9,16 @@ const games = [
     name: "Webbed",
     file: "Files/Webbed/index.html",
     desc: "SUCH A CUTE LITTLE GAME. 10/!)",
-  }, {
+  },
+  
+   {
+    date: "2096-05-28",
+    name: "#1 Game Reccomendation Form",
+    file: "https://form.jotform.com/262434395252054",
+    desc: "Reccomend Games. Or features.. I dont care.",
+  }, 
+  
+  {
     date: "2026-08-28",
     name: "VHS Sans Battle",
     file: "Files/VHS-Sans-main/Vhs Sans Fight! (neff).html",
