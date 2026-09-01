@@ -10,6 +10,12 @@ const games = [
     file: "Files/Webbed/index.html",
     desc: "SUCH A CUTE LITTLE GAME. 10/!)",
   },
+  {
+    date: "2026-05-28",
+    name: "Deltarune",
+    file: "https://therealmythdeveloper.github.io/test/",
+    desc: "Here ya go",
+  },
    {
     date: "2026-07-15",
     name: "20 Minutes Till Dawn",
