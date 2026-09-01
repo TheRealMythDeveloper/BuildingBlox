@@ -67,7 +67,12 @@
 
   backdrop-filter: blur(6px);
   transition: 0.3s;
+
+  /* Performance */
+  content-visibility: auto;
+  contain-intrinsic-size: 150px;
 }
+
 
 .game-card:hover {
   transform: translateY(-5px);
