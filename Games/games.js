@@ -1696,45 +1696,16 @@ function closeGame() {
 }
 
 // OPEN IN ABOUT:BLANK
+// OPEN IN ABOUT:BLANK
 function openGameBlank(path) {
   const win = window.open("about:blank", "_blank");
 
-  win.document.write(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Google Docs</title>
+  if (!win) {
+    alert("Please allow pop-ups for this site.");
+    return;
+  }
 
-      <style>
-        html, body {
-          margin: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          background: black;
-        }
-
-        iframe {
-          width: 100vw;
-          height: 100vh;
-          border: none;
-        }
-      </style>
-    </head>
-
-    <body>
-      <iframe src="${path}" allowfullscreen></iframe>
-    </body>
-    </html>
-  `);
-
-  // Google Docs favicon
-  const link = win.document.createElement("link");
-  link.rel = "icon";
-  link.href = "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico";
-  win.document.head.appendChild(link);
-
-  win.document.close();
+  win.location.href = path;
 
   gameStartTime = Date.now();
 }
