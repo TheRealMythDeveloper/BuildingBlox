@@ -1605,9 +1605,16 @@ function sortGames(games, type) {
 
   return sorted;
 }
+let currentGames = [];
+let currentSortType = "newest";
+
+const BUFFER = 5; // Number of cards to keep above/below viewport
+const CARD_HEIGHT = 140; // Approximate card height in pixels
+
 function renderGames(sortType = "newest") {
   const container = document.getElementById("gamesContainer");
-  container.innerHTML = "";
+
+  currentSortType = sortType;
 
   const search = (searchBar?.value || "").toLowerCase();
 
@@ -1627,35 +1634,113 @@ function renderGames(sortType = "newest") {
     });
   }
 
-  const sorted = sortGames(gameList, sortType);
+  currentGames = sortGames(gameList, sortType);
 
-  sorted.forEach((game) => {
-    const card = document.createElement("div");
-    card.className = "game-card";
+  // Clear old contents
+  container.innerHTML = "";
 
-    card.innerHTML = `
-      <h3>${game.name}</h3>
-      <p>${game.desc}</p>
+  // Create a spacer representing the entire list
+  const spacer = document.createElement("div");
+  spacer.className = "virtual-spacer";
+  spacer.style.height = `${currentGames.length * CARD_HEIGHT}px`;
 
-      <div class="launch-buttons">
-        <button class="launch-site">about:blank</button>
-        <button class="launch-blank">LINK</button>
-      </div>
-    `;
+  container.appendChild(spacer);
 
-    card.querySelector(".launch-site").onclick = (e) => {
-      e.stopPropagation();
-      openGame(game.file);
-    };
-
-    card.querySelector(".launch-blank").onclick = (e) => {
-      e.stopPropagation();
-      openGameBlank(game.file);
-    };
-
-    container.appendChild(card);
-  });
+  updateVisibleGames();
 }
+
+function createGameCard(game, index) {
+  const card = document.createElement("div");
+
+  card.className = "game-card virtual-card";
+
+  card.style.position = "absolute";
+  card.style.top = `${index * CARD_HEIGHT}px`;
+  card.style.left = "0";
+  card.style.right = "0";
+
+  card.innerHTML = `
+    <h3>${game.name}</h3>
+    <p>${game.desc}</p>
+
+    <div class="launch-buttons">
+      <button class="launch-site">about:blank</button>
+      <button class="launch-blank">LINK</button>
+    </div>
+  `;
+
+  card.querySelector(".launch-site").onclick = (e) => {
+    e.stopPropagation();
+    openGame(game.file);
+  };
+
+  card.querySelector(".launch-blank").onclick = (e) => {
+    e.stopPropagation();
+    openGameBlank(game.file);
+  };
+
+  return card;
+}
+
+function updateVisibleGames() {
+  const container = document.getElementById("gamesContainer");
+
+  if (!container || !currentGames.length) return;
+
+  const scrollTop = window.scrollY;
+
+  const viewportHeight = window.innerHeight;
+
+  // Find which cards are near the viewport
+  const firstVisible = Math.max(
+    0,
+    Math.floor(scrollTop / CARD_HEIGHT) - BUFFER
+  );
+
+  const lastVisible = Math.min(
+    currentGames.length - 1,
+    Math.ceil((scrollTop + viewportHeight) / CARD_HEIGHT) + BUFFER
+  );
+
+  // Remove cards that are no longer needed
+  container.querySelectorAll(".virtual-card").forEach((card) => {
+    const index = Number(card.dataset.index);
+
+    if (index < firstVisible || index > lastVisible) {
+      card.remove();
+    }
+  });
+
+  // Add cards that should be visible
+  for (let i = firstVisible; i <= lastVisible; i++) {
+    if (
+      !container.querySelector(
+        `.virtual-card[data-index="${i}"]`
+      )
+    ) {
+      const card = createGameCard(currentGames[i], i);
+
+      card.dataset.index = i;
+
+      container.appendChild(card);
+    }
+  }
+}
+
+// Update cards while scrolling
+let scrollTicking = false;
+
+window.addEventListener("scroll", () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      updateVisibleGames();
+      scrollTicking = false;
+    });
+
+    scrollTicking = true;
+  }
+});
+
 // =======================
 // DROPDOWN HOOK
 // =======================
