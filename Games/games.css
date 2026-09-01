@@ -230,3 +230,16 @@ body {
   transform: translate(-50%, -50%);
   transition: transform 0.05s ease;
 }
+
+#gamesContainer {
+  position: relative;
+}
+
+.virtual-spacer {
+  width: 100%;
+  pointer-events: none;
+}
+
+.virtual-card {
+  box-sizing: border-box;
+}
