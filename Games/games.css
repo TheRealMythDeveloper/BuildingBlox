@@ -67,12 +67,7 @@
 
   backdrop-filter: blur(6px);
   transition: 0.3s;
-
-  /* Performance */
-  content-visibility: auto;
-  contain-intrinsic-size: 150px;
 }
-
 
 .game-card:hover {
   transform: translateY(-5px);
@@ -234,17 +229,4 @@ body {
 
   transform: translate(-50%, -50%);
   transition: transform 0.05s ease;
-}
-
-#gamesContainer {
-  position: relative;
-}
-
-.virtual-spacer {
-  width: 100%;
-  pointer-events: none;
-}
-
-.virtual-card {
-  box-sizing: border-box;
 }
