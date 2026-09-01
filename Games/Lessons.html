@@ -7,7 +7,25 @@
   <link rel="stylesheet" href="../Home/home.css">
   
     <meta name="description" content="BuildingBlox is an interactive web hub with, tools, a terminal, and calming focus pages designed for exploration and creativity." />
+<style> 
+.pinned-card {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
 
+  width: 220px;
+  box-sizing: border-box;
+
+  text-decoration: none;
+  color: white;
+}
+
+.pinned-card:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+</style>
 </head>
 <body>
 <div id="cursor"></div>
@@ -35,6 +53,10 @@
     <option value="za">Z → A</option>
   </select>
 </div>
+  <a href="https://form.jotform.com/262434395252054" class="game-card pinned-card">
+  <h3>Reccomendation Form</h3>
+  <p>Submit game reccomends</p>
+</a>
 <div class="games-container" id="gamesContainer"></div>
 
 
