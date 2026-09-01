@@ -9,6 +9,11 @@ const games = [
     name: "Webbed",
     file: "Files/Webbed/index.html",
     desc: "SUCH A CUTE LITTLE GAME. 10/!)",
+  }, {
+    date: "2026-08-28",
+    name: "VHS Sans Battle",
+    file: "Files/VHS-Sans-main/Vhs Sans Fight! (neff).html",
+    desc: "SUCH A CUTE LITTLE GAME. 10/!)",
   },
   {
     date: "2026-05-28",
