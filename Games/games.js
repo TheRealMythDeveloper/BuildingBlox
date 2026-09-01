@@ -1638,8 +1638,8 @@ function renderGames(sortType = "newest") {
       <p>${game.desc}</p>
 
       <div class="launch-buttons">
-        <button class="launch-site">Play here</button>
-        <button class="launch-blank">about:blank</button>
+        <button class="launch-site">about:blank</button>
+        <button class="launch-blank">LINK</button>
       </div>
     `;
 
@@ -1674,7 +1674,7 @@ renderGames("newest");
 // GAME OPEN / CLOSE
 // =======================
 // OPEN IN ABOUT:BLANK
-function openGameBlank(path) {
+function openGame(path) {
   const win = window.open("about:blank", "_blank");
 
   win.document.write(`
