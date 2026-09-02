@@ -1661,13 +1661,7 @@ function renderGames(sortType = "newest") {
 function createGameCard(game, index) {
   const card = document.createElement("div");
 
-  card.className = "game-card virtual-card";
-
-card.style.position = "absolute";
-card.style.top = `${index * CARD_HEIGHT}px`;
-card.style.left = "50%";
-card.style.transform = "translateX(-50%)";
-
+  card.className = "game-card";
 
   card.innerHTML = `
     <h3>${game.name}</h3>
@@ -1691,6 +1685,7 @@ card.style.transform = "translateX(-50%)";
 
   return card;
 }
+
 
 function updateVisibleGames() {
   const container = document.getElementById("gamesContainer");
