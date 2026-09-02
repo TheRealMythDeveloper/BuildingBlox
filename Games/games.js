@@ -1663,10 +1663,11 @@ function createGameCard(game, index) {
 
   card.className = "game-card virtual-card";
 
-  card.style.position = "absolute";
-  card.style.top = `${index * CARD_HEIGHT}px`;
-  card.style.left = "0";
-  card.style.right = "0";
+card.style.position = "absolute";
+card.style.top = `${index * CARD_HEIGHT}px`;
+card.style.left = "50%";
+card.style.transform = "translateX(-50%)";
+
 
   card.innerHTML = `
     <h3>${game.name}</h3>
