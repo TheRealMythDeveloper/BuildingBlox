@@ -4,39 +4,48 @@ const miniGames = [
     desc: "Quick utility",
     file: "./Index.html"
   },
+
   {
     name: "URL Encoder",
     desc: "Recodes a URL so it isn't blocked.",
     file: "./index (1).html"
   },
-   {
+
+  {
     name: "GodotOS",
-    desc: "...  Kindof just a text editor.",
+    desc: "... Kindof just a text editor.",
     file: "GodotOS/index.html"
   },
+
   {
     name: "Mythos Client Board",
     desc: "Unblocked Minecraft and bloxd and more",
     file: "https://therealmythdeveloper.github.io/MythosClientBoard/"
   },
-   {
+
+  {
+    name: "MagmaHam ROMS Emulator",
+    desc: "A website made by a friend, not my work. Also not my security so be careful IDK.",
+    file: "https://magmarom.base44.app/"
+  },
+
+  {
     name: "Chrome Exploits",
     desc: "Dancing ducky gave me inspiration for life",
     file: "https://t3rm-exploit-dump.vercel.app/"
-    //https://github.com/T3M1N4L/exploit-dump/deployments/github-pages
-    //backuplink http://expl-dump.t3rm1n4l.dev/
-  },
- 
+  }
 ];
 
 function renderMini() {
   const container = document.getElementById("miniContainer");
+
   if (!container) return;
 
   container.innerHTML = "";
 
   miniGames.forEach(item => {
     const card = document.createElement("div");
+
     card.className = "mini-card";
 
     card.innerHTML = `
@@ -55,4 +64,19 @@ function renderMini() {
 
 window.addEventListener("DOMContentLoaded", () => {
   renderMini();
+});
+
+document.addEventListener("mousemove", (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+  document.querySelector(".container").style.transform =
+    `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+});
+
+const cursor = document.getElementById("cursor");
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
 });

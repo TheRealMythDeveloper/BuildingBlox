@@ -3,62 +3,104 @@ searchBar.addEventListener("input", () => {
   renderGames();
 });
 const games = [
-  { date: "2026-06-12", name: "Plinko Panic", file: "Files/plinkoPanic/index.html", desc: "Dont panic, there are no takey-backies", }, { date: "2026-06-12", name: "Uncontained: SCP Card Game", file: "Files/Uncontained/index.html", desc: "Hey, so We may have had a breach....", }, { date: "2026-06-12", name: "Purgatory Trial", file: "Files/PurgatoryTrial/index.html", desc: "What did we do to end up here? Dunno..", }, { date: "2026-06-12", name: "Dominoir", file: "Files/Dominoir/index.html", desc: "Would you r like to plor some dominoir", }, { date: "2026-06-12", name: "Flubby Farm", file: "Files/FlubbyFarm/index.html", desc: "Flubbies? Its a card game, somehow.", }, { date: "2026-06-12", name: "Cardalaxy", file: "Files/Cardalaxy/index.html", desc: "Protect the galaxy!!", }, { date: "2026-06-12", name: "Collect Or DIcE", file: "Files/CollectOrDIcE/index.html", desc: "... Uh", },
-  {
-    date: "2026-05-28",
-    name: "Webbed",
-    file: "Files/Webbed/index.html",
-    desc: "SUCH A CUTE LITTLE GAME. 10/!)",
-  }, {
-    date: "2026-08-28",
-    name: "VHS Sans Battle",
-    file: "Files/VHS-Sans-main/Vhs Sans Fight! (neff).html",
-    desc: "SUCH A CUTE LITTLE GAME. 10/!)",
-  },
-  {
-    date: "2026-05-28",
-    name: "Deltarune",
-    file: "https://therealmythdeveloper.github.io/test/",
-    desc: "Here ya go",
-  },
-   {
-    date: "2026-07-15",
-    name: "20 Minutes Till Dawn",
-    file: "Files/20_minutes_till_dawn.html",
-    desc: "The real 20 minutes begin now",
-  },
-  {
-    date: "2026-07-15",
-    name: "Totally Accurate Battle Simulator (TABS)",
-    file: "Files/totally_accurate_battle_simulator.html",
-    desc: "Im totally in this game",
-  },
-   {
-    date: "2026-07-15",
-    name: "Rhythm Heaven!",
-    file: "Files/rhythm_heaven.html",
-    desc: "I LOVE THIS GAME!!",
-  },
-   {
-    date: "2026-07-15",
-    name: "Hollow Knight Silksong",
-    file: "Files/hollow_knight__silksong.html",
-    desc: "I actually dont know what this is. but its hollow knight so its cool.",
-  },
-     {
-    date: "2026-07-15",
-    name: "Plauge Inc v2",
-    file: "Files/plague_inc.html",
-    desc: "The jsn deliver files have been fixed. This one should work.",
-  },
-     {
-    date: "2026-07-15",
-    name: "JSAB",
-    file: "Files/JSAB/index.html",
-    desc: "Rockin this game, dont worry, i'll add better descriptions later.",
-  },
-  
-  {
+
+{
+  date: "2026-06-12",
+  name: "Plinko Panic",
+  file: "Files/plinkoPanic/index.html",
+  desc: "Drop the ball. Pray to probability.",
+},
+{
+  date: "2026-06-12",
+  name: "Uncontained: SCP Card Game",
+  file: "Files/Uncontained/index.html",
+  desc: "The cards are contained. The anomalies are not.",
+},
+{
+  date: "2026-06-12",
+  name: "Purgatory Trial",
+  file: "Files/PurgatoryTrial/index.html",
+  desc: "Welcome to purgatory. Your trial starts... whenever.",
+},
+{
+  date: "2026-06-12",
+  name: "Dominoir",
+  file: "Files/Dominoir/index.html",
+  desc: "Dominoes, but make it mysterious.",
+},
+{
+  date: "2026-06-12",
+  name: "Flubby Farm",
+  file: "Files/FlubbyFarm/index.html",
+  desc: "Raise flubbies. Play cards. Ask questions later.",
+},
+{
+  date: "2026-06-12",
+  name: "Cardalaxy",
+  file: "Files/Cardalaxy/index.html",
+  desc: "The galaxy needs saving. Fortunately, you have cards.",
+},
+{
+  date: "2026-06-12",
+  name: "Collect Or DIcE",
+  file: "Files/CollectOrDIcE/index.html",
+  desc: "Collect things. Roll dice. Hope that was the plan.",
+},
+{
+  date: "2026-05-28",
+  name: "Webbed",
+  file: "Files/Webbed/index.html",
+  desc: "You are a tiny spider. You have places to be.",
+},
+{
+  date: "2026-08-28",
+  name: "VHS Sans Battle",
+  file: "Files/VHS-Sans-main/Vhs Sans Fight! (neff).html",
+  desc: "Fight Sans. Possibly fight your Chromebook too.",
+},
+{
+  date: "2026-05-28",
+  name: "Deltarune",
+  file: "https://therealmythdeveloper.github.io/test/",
+  desc: "A dark world, a strange prophecy, and absolutely no idea what you're doing.",
+},
+{
+  date: "2026-07-15",
+  name: "20 Minutes Till Dawn",
+  file: "Files/20_minutes_till_dawn.html",
+  desc: "Survive the night. Try not to become part of the scenery.",
+},
+{
+  date: "2026-07-15",
+  name: "Totally Accurate Battle Simulator (TABS)",
+  file: "Files/totally_accurate_battle_simulator.html",
+  desc: "Completely accurate. Extremely professional. Nothing could go wrong.",
+},
+{
+  date: "2026-07-15",
+  name: "Rhythm Heaven!",
+  file: "Files/rhythm_heaven.html",
+  desc: "Hit the beat. Miss the beat. Pretend you meant to.",
+},
+{
+  date: "2026-07-15",
+  name: "Hollow Knight Silksong",
+  file: "Files/hollow_knight__silksong.html",
+  desc: "Hornet is back. The bugs have not learned their lesson.",
+},
+{
+  date: "2026-07-15",
+  name: "Plauge Inc v2",
+  file: "Files/plague_inc.html",
+  desc: "The plague has been upgraded. Humanity has not.",
+},
+{
+  date: "2026-07-15",
+  name: "JSAB",
+  file: "Files/JSAB/index.html",
+  desc: "Everything is colorful. Everything is dancing. Everything wants you dead.",
+},
+{
     date: "2026-04-20",
     name: "Ragdoll Archers",
     file: "Files/ragdoll_archers.html",
@@ -1401,79 +1443,91 @@ const games = [
     file: "Files/Cultinc/index.html",
     desc: "Worship a big thing. Hope it won't eat you.",
   },
-  {
-    date: "2026-05-23",
-    name: "Deadbeat",
-    file: "Files/Deadbeats/index.html",
-    desc: "Dancing with death. Literally. Sounds fun!",
-  },
 
-  {
-    date: "2026-05-25",
-    name: "Dynabeat",
-    file: "Files/Dynabeat/index.html",
-    desc: "Turn any song into a dance of DEATH",
-  },
-  {
-    date: "2026-05-25",
-    name: "Slot or Not",
-    file: "Files/Slotornot/index.html",
-    desc: "Gambling just got a little more dangerous..",
-  },
-  {
-    date: "2026-05-25",
-    name: "Ball Game",
-    file: "Files/BallGame/index.html",
-    desc: "The hunger games with bouncy balls",
-  },
-  {
-    date: "2026-05-25",
-    name: "Pegfinity",
-    file: "Files/Pegfinity/index.html",
-    desc: "Break your computer with wayyyy too many objects.",
-  },
-  {
-    date: "2026-05-25",
-    name: "Waxweaver",
-    file: "Files/waxweaver/index.html",
-    desc: "Kind of like terarria i think.",
-  },
-  {
-    date: "2026-05-25",
-    name: "SCP 682 Evolution",
-    file: "Files/ScpEvo/index.html",
-    desc: "Dont die!",
-  },
-  {
-    date: "2026-05-25",
-    name: "Terrible Jobs",
-    file: "Files/TerribleJob/index.html",
-    desc: "its- its- a job application!",
-  },
-  {
-    date: "2026-05-25",
-    name: "Solitude.exe",
-    file: "Files/Solitude.exe/index.html",
-    desc: "Dont worry",
-  },
-   {
-    date: "2026-05-25",
-    name: "Too Deep To Stop",
-    file: "Files/TooDeep/index.html",
-    desc: "whhhHHHHEEEE",
-  },
-  {
-    date: "2026-06-12",
-    name: "Metroloop",
-    file: "Files/Metroloop/index.html",
-    desc: "the white powder + Subway = This game",
-  },
-   {
-    date: "2026-06-12",
-    name: "Solar Sandbox",
-    file: "Files/SolarSandbox/index.html",
-    desc: "SIMULATE THE WORLDSSS",
-  },
+{
+  date: "2026-05-23",
+  name: "Deadbeat",
+  file: "Files/Deadbeats/index.html",
+  desc: "Death has rhythm. Unfortunately, so do you.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Dynabeat",
+  file: "Files/Dynabeat/index.html",
+  desc: "Give any song a beat. Give yourself a problem.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Slot or Not",
+  file: "Files/Slotornot/index.html",
+  desc: "Spin the wheel. Make questionable decisions.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Ball Game",
+  file: "Files/BallGame/index.html",
+  desc: "A perfectly normal competition between perfectly normal balls.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Pegfinity",
+  file: "Files/Pegfinity/index.html",
+  desc: "There are too many pegs. There will never be enough pegs.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Waxweaver",
+  file: "Files/waxweaver/index.html",
+  desc: "Craft, explore, survive. Or something like that.",
+},
+
+{
+  date: "2026-05-25",
+  name: "SCP 682 Evolution",
+  file: "Files/ScpEvo/index.html",
+  desc: "It evolves. You panic. That's the arrangement.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Terrible Jobs",
+  file: "Files/TerribleJob/index.html",
+  desc: "Congratulations! You have been hired. Unfortunately.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Solitude.exe",
+  file: "Files/Solitude.exe/index.html",
+  desc: "Don't worry. It's probably fine.",
+},
+
+{
+  date: "2026-05-25",
+  name: "Too Deep To Stop",
+  file: "Files/TooDeep/index.html",
+  desc: "You went too deep. There is no turning back now.",
+},
+
+{
+  date: "2026-06-12",
+  name: "Metroloop",
+  file: "Files/Metroloop/index.html",
+  desc: "Subway + mysterious white powder = probably a good idea.",
+},
+
+{
+  date: "2026-06-12",
+  name: "Solar Sandbox",
+  file: "Files/SolarSandbox/index.html",
+  desc: "SIMULATE THE UNIVERSE. BREAK THE UNIVERSE. YOUR CHOICE.",
+},
+
 ];
 
 const echoMessages = [
