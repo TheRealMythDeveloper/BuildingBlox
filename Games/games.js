@@ -3,104 +3,62 @@ searchBar.addEventListener("input", () => {
   renderGames();
 });
 const games = [
-
-{
-  date: "2026-06-12",
-  name: "Plinko Panic",
-  file: "Files/plinkoPanic/index.html",
-  desc: "Drop the ball. Pray to probability.",
-},
-{
-  date: "2026-06-12",
-  name: "Uncontained: SCP Card Game",
-  file: "Files/Uncontained/index.html",
-  desc: "The cards are contained. The anomalies are not.",
-},
-{
-  date: "2026-06-12",
-  name: "Purgatory Trial",
-  file: "Files/PurgatoryTrial/index.html",
-  desc: "Welcome to purgatory. Your trial starts... whenever.",
-},
-{
-  date: "2026-06-12",
-  name: "Dominoir",
-  file: "Files/Dominoir/index.html",
-  desc: "Dominoes, but make it mysterious.",
-},
-{
-  date: "2026-06-12",
-  name: "Flubby Farm",
-  file: "Files/FlubbyFarm/index.html",
-  desc: "Raise flubbies. Play cards. Ask questions later.",
-},
-{
-  date: "2026-06-12",
-  name: "Cardalaxy",
-  file: "Files/Cardalaxy/index.html",
-  desc: "The galaxy needs saving. Fortunately, you have cards.",
-},
-{
-  date: "2026-06-12",
-  name: "Collect Or DIcE",
-  file: "Files/CollectOrDIcE/index.html",
-  desc: "Collect things. Roll dice. Hope that was the plan.",
-},
-{
-  date: "2026-05-28",
-  name: "Webbed",
-  file: "Files/Webbed/index.html",
-  desc: "You are a tiny spider. You have places to be.",
-},
-{
-  date: "2026-08-28",
-  name: "VHS Sans Battle",
-  file: "Files/VHS-Sans-main/Vhs Sans Fight! (neff).html",
-  desc: "Fight Sans. Possibly fight your Chromebook too.",
-},
-{
-  date: "2026-05-28",
-  name: "Deltarune",
-  file: "https://therealmythdeveloper.github.io/test/",
-  desc: "A dark world, a strange prophecy, and absolutely no idea what you're doing.",
-},
-{
-  date: "2026-07-15",
-  name: "20 Minutes Till Dawn",
-  file: "Files/20_minutes_till_dawn.html",
-  desc: "Survive the night. Try not to become part of the scenery.",
-},
-{
-  date: "2026-07-15",
-  name: "Totally Accurate Battle Simulator (TABS)",
-  file: "Files/totally_accurate_battle_simulator.html",
-  desc: "Completely accurate. Extremely professional. Nothing could go wrong.",
-},
-{
-  date: "2026-07-15",
-  name: "Rhythm Heaven!",
-  file: "Files/rhythm_heaven.html",
-  desc: "Hit the beat. Miss the beat. Pretend you meant to.",
-},
-{
-  date: "2026-07-15",
-  name: "Hollow Knight Silksong",
-  file: "Files/hollow_knight__silksong.html",
-  desc: "Hornet is back. The bugs have not learned their lesson.",
-},
-{
-  date: "2026-07-15",
-  name: "Plauge Inc v2",
-  file: "Files/plague_inc.html",
-  desc: "The plague has been upgraded. Humanity has not.",
-},
-{
-  date: "2026-07-15",
-  name: "JSAB",
-  file: "Files/JSAB/index.html",
-  desc: "Everything is colorful. Everything is dancing. Everything wants you dead.",
-},
-{
+  { date: "2026-06-12", name: "Plinko Panic", file: "Files/plinkoPanic/index.html", desc: "Dont panic, there are no takey-backies", }, { date: "2026-06-12", name: "Uncontained: SCP Card Game", file: "Files/Uncontained/index.html", desc: "Hey, so We may have had a breach....", }, { date: "2026-06-12", name: "Purgatory Trial", file: "Files/PurgatoryTrial/index.html", desc: "What did we do to end up here? Dunno..", }, { date: "2026-06-12", name: "Dominoir", file: "Files/Dominoir/index.html", desc: "Would you r like to plor some dominoir", }, { date: "2026-06-12", name: "Flubby Farm", file: "Files/FlubbyFarm/index.html", desc: "Flubbies? Its a card game, somehow.", }, { date: "2026-06-12", name: "Cardalaxy", file: "Files/Cardalaxy/index.html", desc: "Protect the galaxy!!", }, { date: "2026-06-12", name: "Collect Or DIcE", file: "Files/CollectOrDIcE/index.html", desc: "... Uh", },
+  {
+    date: "2026-05-28",
+    name: "Webbed",
+    file: "Files/Webbed/index.html",
+    desc: "SUCH A CUTE LITTLE GAME. 10/!)",
+  }, {
+    date: "2026-08-28",
+    name: "VHS Sans Battle",
+    file: "Files/VHS-Sans-main/Vhs Sans Fight! (neff).html",
+    desc: "SUCH A CUTE LITTLE GAME. 10/!)",
+  },
+  {
+    date: "2026-05-28",
+    name: "Deltarune",
+    file: "https://therealmythdeveloper.github.io/test/",
+    desc: "Here ya go",
+  },
+   {
+    date: "2026-07-15",
+    name: "20 Minutes Till Dawn",
+    file: "Files/20_minutes_till_dawn.html",
+    desc: "The real 20 minutes begin now",
+  },
+  {
+    date: "2026-07-15",
+    name: "Totally Accurate Battle Simulator (TABS)",
+    file: "Files/totally_accurate_battle_simulator.html",
+    desc: "Im totally in this game",
+  },
+   {
+    date: "2026-07-15",
+    name: "Rhythm Heaven!",
+    file: "Files/rhythm_heaven.html",
+    desc: "I LOVE THIS GAME!!",
+  },
+   {
+    date: "2026-07-15",
+    name: "Hollow Knight Silksong",
+    file: "Files/hollow_knight__silksong.html",
+    desc: "I actually dont know what this is. but its hollow knight so its cool.",
+  },
+     {
+    date: "2026-07-15",
+    name: "Plauge Inc v2",
+    file: "Files/plague_inc.html",
+    desc: "The jsn deliver files have been fixed. This one should work.",
+  },
+     {
+    date: "2026-07-15",
+    name: "JSAB",
+    file: "Files/JSAB/index.html",
+    desc: "Rockin this game, dont worry, i'll add better descriptions later.",
+  },
+  
+  {
     date: "2026-04-20",
     name: "Ragdoll Archers",
     file: "Files/ragdoll_archers.html",
@@ -1659,9 +1617,12 @@ function sortGames(games, type) {
 
   return sorted;
 }
+let currentGames = [];
+let currentSortType = "newest";
 function renderGames(sortType = "newest") {
   const container = document.getElementById("gamesContainer");
-  container.innerHTML = "";
+
+  currentSortType = sortType;
 
   const search = (searchBar?.value || "").toLowerCase();
 
@@ -1671,7 +1632,6 @@ function renderGames(sortType = "newest") {
       (game.desc || "").toLowerCase().includes(search)
   );
 
-  // Rare hidden game 👁️
   if (Math.random() < 0.05) {
     gameList.push({
       date: "????-??-??",
@@ -1681,35 +1641,46 @@ function renderGames(sortType = "newest") {
     });
   }
 
-  const sorted = sortGames(gameList, sortType);
+  currentGames = sortGames(gameList, sortType);
 
-  sorted.forEach((game) => {
-    const card = document.createElement("div");
-    card.className = "game-card";
+  container.innerHTML = "";
 
-    card.innerHTML = `
-      <h3>${game.name}</h3>
-      <p>${game.desc}</p>
-
-      <div class="launch-buttons">
-        <button class="launch-site">Play here</button>
-        <button class="launch-blank">about:blank</button>
-      </div>
-    `;
-
-    card.querySelector(".launch-site").onclick = (e) => {
-      e.stopPropagation();
-      openGame(game.file);
-    };
-
-    card.querySelector(".launch-blank").onclick = (e) => {
-      e.stopPropagation();
-      openGameBlank(game.file);
-    };
-
+  currentGames.forEach((game, index) => {
+    const card = createGameCard(game, index);
     container.appendChild(card);
   });
 }
+
+
+function createGameCard(game, index) {
+  const card = document.createElement("div");
+
+  card.className = "game-card";
+
+  card.innerHTML = `
+    <h3>${game.name}</h3>
+    <p>${game.desc}</p>
+
+    <div class="launch-buttons">
+      <button class="launch-site">about:blank</button>
+      <button class="launch-blank">LINK</button>
+    </div>
+  `;
+
+  card.querySelector(".launch-site").onclick = (e) => {
+    e.stopPropagation();
+    openGame(game.file);
+  };
+
+  card.querySelector(".launch-blank").onclick = (e) => {
+    e.stopPropagation();
+    openGameBlank(game.file);
+  };
+
+  return card;
+}
+
+
 // =======================
 // DROPDOWN HOOK
 // =======================
@@ -1727,30 +1698,8 @@ renderGames("newest");
 // =======================
 // GAME OPEN / CLOSE
 // =======================
-let gameStartTime = 0;
-
-// PLAY INSIDE WEBSITE
-function openGame(path) {
-  const overlay = document.getElementById("gameOverlay");
-  const frame = document.getElementById("gameFrame");
-
-  frame.src = path;
-  overlay.classList.remove("hidden");
-
-  gameStartTime = Date.now();
-}
-
-// CLOSE WEBSITE PLAYER
-function closeGame() {
-  const overlay = document.getElementById("gameOverlay");
-  const frame = document.getElementById("gameFrame");
-
-  frame.src = "";
-  overlay.classList.add("hidden");
-}
-
 // OPEN IN ABOUT:BLANK
-function openGameBlank(path) {
+function openGame(path) {
   const win = window.open("about:blank", "_blank");
 
   win.document.write(`
@@ -1789,6 +1738,31 @@ function openGameBlank(path) {
   win.document.head.appendChild(link);
 
   win.document.close();
+
+  gameStartTime = Date.now();
+}
+
+
+// CLOSE WEBSITE PLAYER
+function closeGame() {
+  const overlay = document.getElementById("gameOverlay");
+  const frame = document.getElementById("gameFrame");
+
+  frame.src = "";
+  overlay.classList.add("hidden");
+}
+
+// OPEN IN ABOUT:BLANK
+// OPEN IN ABOUT:BLANK
+function openGameBlank(path) {
+  const win = window.open("about:blank", "_blank");
+
+  if (!win) {
+    alert("Please allow pop-ups for this site.");
+    return;
+  }
+
+  win.location.href = path;
 
   gameStartTime = Date.now();
 }
