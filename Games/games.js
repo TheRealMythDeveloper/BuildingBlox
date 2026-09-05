@@ -3,7 +3,18 @@ searchBar.addEventListener("input", () => {
   renderGames();
 });
 const games = [
-
+ {
+    date: "2050-05-28",
+    name: "#1 Larger Game Site",
+    file: "https://bigboy-jy73.onrender.com/",
+    desc: "May take longer to load, but cooler.",
+  },
+  {
+    date: "2096-05-28",
+    name: "#1 Game Reccomendation Form",
+    file: "https://form.jotform.com/262434395252054",
+    desc: "Reccomend Games. Or features.. I dont care.",
+  }, 
 {
   date: "2026-06-12",
   name: "Plinko Panic",
